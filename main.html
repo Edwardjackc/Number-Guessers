@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Number Guesser Doubles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="normalize.css">
+</head>
+<body>
+  <header>
+    <h1>Number<span>Guesser</span> </h1>
+    <h2>ULTIMATE CHALLENGER EDITION</h2>
+  </header>
+  <main>
+    <container class="range__container--set">
+      <h3>
+      </h3>
+      <label class="range__set--min">
+        Min Range
+      </label>
+      <input class="range__input--min">
+      <label class="range__set--max">
+        Max Range
+      </label>
+      <input class="range__input--max">
+      <input class="range__btn--update">
+    </container>
+    <container class="player__container--ch">
+      <h3>
+      </h3>
+      <form class="player__form--ch player__form--ch1">
+        <label class="player__label--name player__label--ch1">
+        </label>
+        <input class="player__input--name" id="player__name--ch1">
+        <label class="player__label--guess">
+        </label>
+        <input class="player__input--guess" id="player__guess--ch1">
+      </form>
+      <h3>
+      </h3>
+        <form class="player__form--ch player__form--ch2">
+          <label class="player__label--name player__label--ch2">
+          </label>
+          <input class="player__input--name" id="player__name--ch2">
+          <label class="player__label--guess">
+          </label>
+          <input class="player__input--guess" id="player__guess--ch2">
+        </form>
+    </container>
+    <container class="latest-score__container">
+      <h3>Latest Score</h3>
+      <article class="latest-score__article--ch1">
+        <span class="latest-score__span--name1">Challenger 1 Name</span>
+        <h4>current guess</h4>
+        <span class="latest-score__span--guess">99</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--left">thats too high</span>
+      </article>
+      <article class="latest-score__article--ch2">
+        <span class="latest-score__span--name1">Challenger 1 Name</span>
+        <h4>current guess</h4>
+        <span class="latest-score__span--guess">99</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--right">thats too high</span>
+      </article>
+    </container>
+  </main>
+  <aside class="card__container">
+    <article class="card__article--winner">
+      <span class="card__span--name" id="card__name--ch1">Challenger1</span>
+      <span class="card__span--vs">vs</span>
+      <span class="card__span--name" id="card__name--ch2">Challenger2</span>
+      <span class="card__span--winner" id="card__span--winner">Challenger1 Name</span>
+      <h3 class="card__header--winner">WINNER</h4>
+    </article>
+  </aside>
+</body>
+<script src="main.js"></script>
+</html>
