@@ -120,6 +120,11 @@ main {
   flex-direction:rows;
 }
 
+.player__span--range {
+  text-decoration: underline;
+  font-weight:700;
+}
+
 .player__label {
   height:20px;
   color: #6e6e6e;
