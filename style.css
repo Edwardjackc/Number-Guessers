@@ -1,6 +1,6 @@
 * {
   box-sizing:border-box;
-  /* border:1px red solid; */
+  border:1px red solid;
 }
 
 body {
@@ -41,7 +41,7 @@ header {
   font-weight: 300;
 }
 
-/********************** Main *********************/
+/****************** Main *********************/
 main {
   display: flex;
   justify-content: space-between;
@@ -52,24 +52,19 @@ main {
   padding:20px
 }
 
-fieldset {
-  text-decoration: none;
-}
-
 .container__headers {
-  height:30px;
+  height:20px;
   width:165px;
   color:#6e6e6e;
 }
 
 .range__container--set {
-  display:inline-block;
   height:15%;
   width:100%;
   background-color:#ffffff;
   border: #d0d0d0 2px solid;
   color:#6e6e6e;
-
+  display:flex;
 }
 
 .range__label { 
@@ -83,20 +78,24 @@ fieldset {
 }
 
 .range__input {
+  display: block;
   height:30px;
   width:20%
 }
 
 .range__btn--update{
   background-color:#ffffff;
-  height:40px;
+  height:30px;
   width:120px;
-  border-radius:30%;
+  border-radius:25px;
   color:#ffffff;
   background-color:#6e6e6e;
   font-weight:700;
 }
 
+.player__wrapper {
+  display:block;
+}
 
 /*** ****/
 
@@ -106,7 +105,7 @@ fieldset {
   height:55%;
   width:100%;
   background-color:#ffffff;
-  padding:15px;
+  padding:10px;
 }
 
 .player__header--range {
@@ -120,7 +119,7 @@ fieldset {
 .player__form--ch {
   display:flex;
   width:100%;
-  height:15%;
+  height:10%;
 }
 
 .player__span--range {
@@ -135,12 +134,14 @@ fieldset {
 
 .player__input {
   height:40px;
-  width:60%
+  width:60%;
+  display: block;
 }
 
 .player__input--guess { 
   height:40px;
-  width:30%
+  width:30%;
+  display: block;
 }
 
 .player__wrapper--btns {
@@ -154,6 +155,7 @@ fieldset {
   background-color:#ffffff;
   display:flex;
   flex-wrap:wrap;
+  min-width: 30%;
   justify-content:center;
   height:33px;
   border-radius:25px;
