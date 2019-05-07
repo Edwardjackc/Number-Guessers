@@ -17,11 +17,11 @@
   <main>
     <container class="range__container--set">
       <h3 class="container__headers">Set Range</h3>
-      <label class="range__label range__label--min">
+      <label class="range__label range__label--min"for="range__input--min">
         Min Range
       </label>
       <input class="range__input range__input--min">
-      <label class="range__label range__label--max">
+      <label class="range__label range__label--max"for="range__input--max">
         Max Range
       </label>
       <input class="range__input range__input--max">
@@ -31,23 +31,23 @@
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
       <h3 class="container__headers">Challenger 1</h3>
       <form class="player__form--ch player__form--ch1">
-        <label class="player__label player__label--name">Name
+        <label class="player__label player__label--name" for="player__name--ch1">Name
         </label>
         <input class="player__input" id="player__name--ch1">
-        <label class="player__label">Guess</label>
+        <label class="player__label" for="player__guess--ch1">Guess</label>
         <input class="player__input--guess" id="player__guess--ch1">
       </form>
       <h3 class="container__headers">Challenger 2 </h3>
         <form class="player__form--ch player__form--ch2">
-          <label class="player__label player__label--name">Name
+          <label class="player__label player__label--name"for="player__name--ch2">Name
           </label>
           <input class="player__input" id="player__name--ch2">
-          <label class="player__label">Guess</label>
+          <label class="player__label"for="player__guess--ch2">Guess</label>
           <input class="player__input--guess" id="player__guess--ch2">
         </form>
     </container>
     <container class="latest-score__container">
-      <h3>Latest Score</h3>
+      <h3 class="container__headers">Latest Score</h3>
       <article class="latest-score__article--ch1">
         <span class="latest-score__span--name1">Challenger 1 Name</span>
         <h4>current guess</h4>

@@ -45,12 +45,15 @@ header {
 main {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: column;
   height:90%;
   width:50%;
   background-color:#f7f7f7;
   padding:20px
+}
+
+fieldset {
+  text-decoration: none;
 }
 
 .container__headers {
@@ -60,7 +63,7 @@ main {
 }
 
 .range__container--set {
-  display:flex;
+  display:inline-block;
   height:15%;
   width:100%;
   background-color:#ffffff;
@@ -99,7 +102,6 @@ main {
 .player__container--ch {
   /* display:flex; */
   border: #d0d0d0 2px solid;
-  display:inline-block;
   height:55%;
   width:100%;
   background-color:#ffffff;
@@ -147,6 +149,7 @@ main {
   height:25%;
   width:100%;
   background-color:#ffffff;
+  padding: 15px;
 }
 
 
@@ -155,12 +158,13 @@ main {
 aside {
   width:50%;
   background-color:#D1D2D4;
-  padding:30px;
+  padding:25px 30px;
   border-left:2px solid #6e6e6e;
 }
 
 .card__article--winner {
   background-color:#ffffff;
   border:2px solid #6e6e6e;
+  padding:10px;
 }
 
