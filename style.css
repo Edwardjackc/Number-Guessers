@@ -20,7 +20,7 @@ header {
   align-items: center;
   background-color:#404041;
   height:20%;
-  padding:20px;
+  padding:25px;
 }
 
 .top__header--edition {
@@ -50,6 +50,7 @@ main {
   height:90%;
   width:50%;
   background-color:#f7f7f7;
+  padding:20px
 }
 
 .container__headers {
