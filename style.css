@@ -1,6 +1,6 @@
 * {
   box-sizing:border-box;
-  border:1px red solid;
+  /* border:1px red solid; */
 }
 
 body {
@@ -56,21 +56,30 @@ main {
   height:20px;
   width:30%;
   color:#6e6e6e;
-  font-size:1.5em;
+  font-size:1.2em;
 }
 
 .range__container--set {
-  height:15%;
+  height:17%;
   width:100%;
   background-color:#ffffff;
   border: #d0d0d0 2px solid;
   color:#6e6e6e;
+  padding:10px;
+}
+
+.range__header {
+  width:30%;
+}
+
+.range__wrapper {
+  height:40px;
+  width:100%;
   display:flex;
+  flex:1 1 
 }
 
 .range__label { 
-  font-weight: 300;
-  color:#d0d2d3;
   font-size:1em;
   height:20px;
   background-color:#ffffff;
@@ -79,9 +88,8 @@ main {
 }
 
 .range__input {
-  display: block;
-  height:30px;
-  width:20%
+  height:35px;
+  width:40%
 }
 
 .range__btn--update{
@@ -93,6 +101,8 @@ main {
   background-color:#6e6e6e;
   font-weight:700;
 }
+
+
 
 .player__wrapper {
   display:block;
@@ -113,16 +123,15 @@ main {
   flex-direction: column;
   justify-content: space-between;
   border: #d0d0d0 2px solid;
-  height:55%;
+  height:51%;
   width:100%;
   background-color:#ffffff;
   padding:10px;
 }
 
 .player__header--range {
-  height: 15px;
-  width: 60%;
-  font-size: 1.5em;
+  width: 80%;
+  font-size: 1.2em;
   color: #6e6e6e;
   font-weight: 300;
 }
@@ -146,7 +155,6 @@ main {
 .player__input {
   height:35px;
   width:100%;
-  display: block;
 }
 
 .player__input--guess { 
@@ -179,10 +187,10 @@ main {
 .latest-score__container {
   border: #d0d0d0 2px solid;
   display:flex;
-  height:25%;
+  height:27%;
   width:100%;
   background-color:#ffffff;
-  padding: 15px;
+  padding: 10px;
 }
 
 

@@ -16,21 +16,23 @@
   </header>
   <main>
     <container class="range__container--set">
-      <h3 class="container__headers">Set Range</h3>
-      <label class="range__label range__label--min"for="range__input--min">
-        Min Range
-      </label>
-      <input class="range__input range__input--min">
-      <label class="range__label range__label--max"for="range__input--max">
-        Max Range
-      </label>
-      <input class="range__input range__input--max">
-      <input class="range__btn--update" type="button" value="UPDATE">
+      <h3 class="container__headers range__header">Set Range</h3>
+      <wrapper class="range__wrapper">
+        <label class="range__label range__label--min"for="range__input--min">
+          Min Range
+        </label>
+        <input class="range__input range__input--min">
+        <label class="range__label range__label--max"for="range__input--max">
+          Max Range
+        </label>
+        <input class="range__input range__input--max">
+        <input class="range__btn--update" type="button" value="UPDATE">
+      </wrapper>
     </container>
     <container class="player__container--ch">
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
       <h3 class="container__headers">Challenger 1</h3>
-      <container class="player__form--ch player__form--ch1">
+      <form class="player__form--ch player__form--ch1">
         <wrapper class="player__wrapper">
           <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
@@ -40,9 +42,9 @@
           <label class="player__label" for="player__guess--ch1">Guess</label>
           <input class="player__input--guess" id="player__guess--ch1" type="number" length="3">
         </wrapper>
-      </container>
+      </form>
       <h3 class="container__headers">Challenger 2 </h3>
-        <container class="player__form--ch player__form--ch2">
+        <form class="player__form--ch player__form--ch2">
           <wrapper class="player__wrapper">
             <label class="player__label player__label--name"for="player__name--ch2">Name
             </label>
@@ -50,9 +52,9 @@
           </wrapper>
           <wrapper class="player__wrapper">
             <label class="player__label"for="player__guess--ch2">Guess</label>
-            <input class="player__input--guess" id="player__guess--ch2" type="number" length="3">
+            <input class="player__input--guess" id="player__guess--ch2" type="number" maxlength="100">
           </wrapper>
-        </container>
+        </form>
         <wrapper class="player__wrapper--btns">
           <input type="button"class="btn"value="SUBMIT GAME"id="player__btn--submit">
           <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
