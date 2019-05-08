@@ -54,8 +54,9 @@ main {
 
 .container__headers {
   height:20px;
-  width:165px;
+  width:30%;
   color:#6e6e6e;
+  font-size:1.5em;
 }
 
 .range__container--set {
@@ -95,12 +96,22 @@ main {
 
 .player__wrapper {
   display:block;
+  flex:1;
 }
 
 /*** ****/
 
+.player__wrapper--top {
+  height:20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+
 .player__container--ch {
-  /* display:flex; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: #d0d0d0 2px solid;
   height:55%;
   width:100%;
@@ -109,11 +120,11 @@ main {
 }
 
 .player__header--range {
-  height:30px;
-  width:250px;
-  font-size:1em;
-  color:#6e6e6e;
-  font-weight:300;
+  height: 15px;
+  width: 60%;
+  font-size: 1.5em;
+  color: #6e6e6e;
+  font-weight: 300;
 }
 
 .player__form--ch {
@@ -133,15 +144,16 @@ main {
 }
 
 .player__input {
-  height:40px;
-  width:60%;
+  height:35px;
+  width:100%;
   display: block;
 }
 
 .player__input--guess { 
-  height:40px;
-  width:30%;
+  height:35px;
+  width:70%;
   display: block;
+  flex:1;
 }
 
 .player__wrapper--btns {
@@ -179,7 +191,7 @@ main {
 aside {
   width:50%;
   background-color:#D1D2D4;
-  padding:25px 30px;
+  padding:20px 30px;
   border-left:2px solid #6e6e6e;
 }
 
