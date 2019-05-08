@@ -11,43 +11,56 @@
 </head>
 <body>
   <header>
-    <h1 class="top__header">Number<span class="top__span">Guesser</span> </h1>
+    <h1 class="top__header">NUMBER<span class="top__span">GUESSER</span> </h1>
     <h2 class="top__header--edition">ULTIMATE CHALLENGER EDITION</h2>
   </header>
   <main>
     <container class="range__container--set">
       <h3 class="container__headers">Set Range</h3>
-      <label class="range__label range__label--min">
+      <label class="range__label range__label--min"for="range__input--min">
         Min Range
       </label>
       <input class="range__input range__input--min">
-      <label class="range__label range__label--max">
+      <label class="range__label range__label--max"for="range__input--max">
         Max Range
       </label>
       <input class="range__input range__input--max">
       <input class="range__btn--update" type="button" value="UPDATE">
     </container>
     <container class="player__container--ch">
-      <h2 class="player__header--range">The Current Range is <span>1</span> to <span>100</span></h2>
+      <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
       <h3 class="container__headers">Challenger 1</h3>
-      <form class="player__form--ch player__form--ch1">
-        <label class="player__label player__label--name">Name
-        </label>
-        <input class="player__input" id="player__name--ch1">
-        <label class="player__label">Guess</label>
-        <input class="player__input--guess" id="player__guess--ch1">
-      </form>
-      <h3 class="container__headers">Challenger 2 </h3>
-        <form class="player__form--ch player__form--ch2">
-          <label class="player__label player__label--name">Name
+      <container class="player__form--ch player__form--ch1">
+        <wrapper class="player__wrapper">
+          <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
-          <input class="player__input" id="player__name--ch2">
-          <label class="player__label">Guess</label>
-          <input class="player__input--guess" id="player__guess--ch2">
-        </form>
+          <input class="player__input" id="player__name--ch1"type="text">
+        </wrapper>
+        <wrapper class="player__wrapper">
+          <label class="player__label" for="player__guess--ch1">Guess</label>
+          <input class="player__input--guess" id="player__guess--ch1" type="number" length="3">
+        </wrapper>
+      </container>
+      <h3 class="container__headers">Challenger 2 </h3>
+        <container class="player__form--ch player__form--ch2">
+          <wrapper class="player__wrapper">
+            <label class="player__label player__label--name"for="player__name--ch2">Name
+            </label>
+            <input class="player__input" id="player__name--ch2"type="text">
+          </wrapper>
+          <wrapper class="player__wrapper">
+            <label class="player__label"for="player__guess--ch2">Guess</label>
+            <input class="player__input--guess" id="player__guess--ch2" type="number" length="3">
+          </wrapper>
+        </container>
+        <wrapper class="player__wrapper--btns">
+          <input type="button"class="btn"value="SUBMIT GAME"id="player__btn--submit">
+          <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
+          <input type="button"class="btn"value="CLEAR GAME"id="player__btn--clear">
+        </wrapper>
     </container>
     <container class="latest-score__container">
-      <h3>Latest Score</h3>
+      <h3 class="container__headers">Latest Score</h3>
       <article class="latest-score__article--ch1">
         <span class="latest-score__span--name1">Challenger 1 Name</span>
         <h4>current guess</h4>
