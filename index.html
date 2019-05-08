@@ -21,12 +21,12 @@
         <label class="range__label range__label--min"for="range__input--min">
           Min Range
         </label>
-        <input class="range__input range__input--min">
+        <input class="range__input range__input--min" id="js_range__input--min" type="number">
         <label class="range__label range__label--max"for="range__input--max">
           Max Range
         </label>
-        <input class="range__input range__input--max">
-        <input class="range__btn--update" type="button" value="UPDATE">
+        <input class="range__input range__input--max" id="js_range__input--max" type="number">
+        <input class="range__btn--update" type="button" value="UPDATE" id="js_range__btn--update">
       </wrapper>
     </container>
     <container class="player__container--ch">
@@ -36,11 +36,11 @@
         <wrapper class="player__wrapper">
           <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
-          <input class="player__input" id="player__name--ch1"type="text">
+          <input class="player__input" id="player__name--ch1"type="text"required pattern=>
         </wrapper>
         <wrapper class="player__wrapper">
           <label class="player__label" for="player__guess--ch1">Guess</label>
-          <input class="player__input--guess" id="player__guess--ch1" type="number" length="3">
+          <input class="player__input--guess" id="player__guess--ch1" type="number">
         </wrapper>
       </form>
       <h3 class="container__headers">Challenger 2 </h3>
@@ -52,7 +52,7 @@
           </wrapper>
           <wrapper class="player__wrapper">
             <label class="player__label"for="player__guess--ch2">Guess</label>
-            <input class="player__input--guess" id="player__guess--ch2" type="number" maxlength="100">
+            <input class="player__input--guess" id="player__guess--ch2" type="number">
           </wrapper>
         </form>
         <wrapper class="player__wrapper--btns">
@@ -64,13 +64,13 @@
     <container class="latest-score__container">
       <h3 class="container__headers">Latest Score</h3>
       <article class="latest-score__article--ch1">
-        <span class="latest-score__span--name1">Challenger 1 Name</span>
+        <span class="latest-score__span--name1" id="latest-score__span--ch1">Challenger 1 Name</span>
         <h4>current guess</h4>
         <span class="latest-score__span--guess">99</span>
         <span class="latest-score__span--low-high" id="latest-score__output--left">thats too high</span>
       </article>
       <article class="latest-score__article--ch2">
-        <span class="latest-score__span--name1">Challenger 2 Name</span>
+        <span class="latest-score__span--name1" id="latest-score__span--ch2">Challenger 2 Name</span>
         <h4>current guess</h4>
         <span class="latest-score__span--guess">99</span>
         <span class="latest-score__span--low-high" id="latest-score__output--right">thats too high</span>
