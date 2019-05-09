@@ -28,14 +28,47 @@ function updateRange() {
   outputRangeMax.innerHTML = inputRangeMax.value || 100;
   inputRangeMin.value = "";
   inputRangeMax.value = "";
+  generateRandomNumber();
 } 
 
 function changeName() {
-outputNameCh1.innerHTML = inputNameCh1.value;
-outputNameCh2.innerHTML = inputNameCh2.value;
-inputNameCh1 = "";
-inputNameCh2 = "";
+  outputNameCh1.innerHTML = inputNameCh1.value;
+  outputNameCh2.innerHTML = inputNameCh2.value;
+  inputNameCh1 = "";
+  inputNameCh2 = "";
 }
+
+function generateRandomNumber() {
+  var correctNumberMin = inputRangeMin.value || 1;
+  var correctNumberMax = inputRangeMax.value || 100;
+  var correctNumber = Math.floor(Math.random() * (correctNumberMax - correctNumberMin + 1)) + correctNumberMin;
+  console.log(correctNumber);
+}
+
+
+window.onload = generateRandomNumber();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
