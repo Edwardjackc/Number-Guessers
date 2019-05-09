@@ -11,10 +11,8 @@ var outputNameCh2 = document.querySelector('#latest-score__span--ch2');
 var btnSubmit = document.querySelector('#player__btn--submit');
 
 
-
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 btnSubmit.addEventListener('click', changeName);
-
 
 
 function updateRange() {
@@ -27,8 +25,6 @@ function updateRange() {
 function changeName() {
   outputNameCh1.innerHTML = inputNameCh1.value;
   outputNameCh2.innerHTML = inputNameCh2.value;
-  inputNameCh1 = "";
-  inputNameCh2 = "";
 }
 
 function generateRandomNumber() {
@@ -44,6 +40,10 @@ function updateCorrectRange() {
   updateRange();
   generateRandomNumber();
 }
+
+// function enabledBtn() { 
+//  .classList.add('.btnEnabled');
+// }
 
 
 window.onload = generateRandomNumber();
