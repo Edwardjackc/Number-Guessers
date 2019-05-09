@@ -11,13 +11,8 @@ var outputNameCh2 = document.querySelector('#latest-score__span--ch2');
 var btnSubmit = document.querySelector('#player__btn--submit');
 
 
-
-
 btnRangeUpdate.addEventListener('click', updateCorrectRange)
 btnSubmit.addEventListener('click', changeName)
-
-
-
 
 
 function updateRange() {
