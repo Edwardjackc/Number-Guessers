@@ -181,7 +181,7 @@ main {
   height:33px;
   border-radius:25px;
   color:#ffffff;
-  background-color:#6e6e6e;
+  background-color:#d0d2d3;
   font-weight:700;
 }
 
@@ -217,12 +217,25 @@ main {
 }
 
 .latest-score__span--guess {
-  font-size: 80px;
+  font-size: 4.5em;
   width:100%;
   display:inline-block;
   color:#dd1972;
   font-weight: 700;
 }
+
+.btnEnabled{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 30%;
+  justify-content: center;
+  height: 33px;
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: #6e6e6e;
+  font-weight: 700;
+}
+
 /********************** Aside *********************/
 
 aside {
@@ -239,48 +252,48 @@ aside {
   padding:10px;
 }
 
-.winner__section {
+.card__section {
   background-color:#ffffff;
   border:2px solid #6e6e6e;
   padding:10px;
-  margin-top: 5px;
+  margin-top:5px;
 }
 
-.winner__div--ch {
+.card__div--ch {
   display:flex;
-  justify-content: space-around;
+  justify-content:space-around;
   padding:5px;
-  font-weight: 700;
+  font-weight:700;
 }
 
-.winner__div--ch p {
+.card__div--ch p {
   margin:0;
   font-weight:100;
 }
 
-.winner__div--winner span {
+.card__div--winner span {
   display: block;
   text-align:center;
 }
 
-.winner__span--name {
+.card__span--name {
   font-size: 2em;
   font-weight: 700;
 }
 
-.winner__span--winner {
+.card__span--winner {
   font-size:2em;
   font-weight:300;
 }
 
-.winner__div--bottom {
+.card__div--bottom {
   display:flex;
   justify-content: space-between;
   font-weight: 100;
   padding:5px;
 }
 
-.winner__btn--close {
+.card__btn--close {
   border-radius: 50%;
   background-color: #6e6e6e;
   color:white;

@@ -15,7 +15,7 @@
     <h2 class="top__header--edition">ULTIMATE CHALLENGER EDITION</h2>
   </header>
   <main>
-    <container class="range__container--set">
+    <section class="range__container--set">
       <h3 class="container__headers range__header">Set Range</h3>
       <wrapper class="range__wrapper">
         <label class="range__label range__label--min"for="range__input--min">
@@ -28,8 +28,8 @@
         <input class="range__input range__input--max" id="js_range__input--max" type="number">
         <input class="range__btn--update" type="button" value="UPDATE" id="js_range__btn--update">
       </wrapper>
-    </container>
-    <container class="player__container--ch">
+    </section>
+    <section class="player__container--ch">
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
       <h3 class="container__headers">Challenger 1</h3>
       <form class="player__form--ch player__form--ch1">
@@ -60,8 +60,8 @@
           <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
           <input type="button"class="btn"value="CLEAR GAME"id="player__btn--clear">
         </wrapper>
-    </container>
-    <container class="latest-score__container">
+      </section>
+    <section class="latest-score__container">
       <h3 class="container__headers">Latest Score</h3>
       <div class="latest-score__div--scores">
       <article class="latest-score__article--ch1">
@@ -77,7 +77,7 @@
         <span class="latest-score__span--low-high" id="latest-score__output--right">that's too high</span>
       </article>
     </div>
-    </container>
+  </section>
   </main>
   <!-- <aside class="card__container">
     <article class="card__article--winner">
@@ -88,20 +88,20 @@
       <h3 class="card__header--winner">WINNER</h4>
     </article> -->
   <aside class="card__container">
-  <section class="winner__section">
-    <div class="winner__div--ch">
-      <span class="winner__span--ch1">CHALLENGER 1 NAME</span>
+  <section class="card__section">
+    <div class="card__div--ch">
+      <span class="card__span--ch1">CHALLENGER 1 NAME</span>
       <p>vs</p>
-      <span class="winner__span--ch2">CHALLENGER 2 NAME</span>
+      <span class="card__span--ch2">CHALLENGER 2 NAME</span>
     </div>
-    <div class="winner__div--winner">
-      <span class="winner__span--name">CHALLENGER 1 NAME</span>
-      <span class="winner__span--winner">WINNER</span>
+    <div class="card__div--winner">
+      <span class="card__span--name">CHALLENGER 1 NAME</span>
+      <span class="card__span--winner">WINNER</span>
     </div>
-    <div class="winner__div--bottom">
-      <span class="winner__span--guess">XX GUESSES</span>
-      <span class="winner__span--minutes">XX MINUTES</span>
-      <button class="winner__btn--close" type="button">x</button>
+    <div class="card__div--bottom">
+      <span class="card__span--guess">XX GUESSES</span>
+      <span class="card__span--minutes">XX MINUTES</span>
+      <button class="card__btn--close" type="button">x</button>
     </div>
   </section>
   </aside>
