@@ -1,6 +1,6 @@
 * {
   box-sizing:border-box;
-  /* border:1px red solid; */
+   /*border:1px red solid; */
 }
 
 body {
@@ -19,7 +19,7 @@ header {
   flex-direction: column;
   align-items: center;
   background-color:#404041;
-  height:20%;
+  /*height:20%;*/
   padding:25px;
 }
 
@@ -46,10 +46,11 @@ main {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height:90%;
+  /*height:90%;*/
   width:50%;
   background-color:#f7f7f7;
-  padding:20px
+  padding:20px;
+
 }
 
 .container__headers {
@@ -123,7 +124,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   border: #d0d0d0 2px solid;
-  height:51%;
+  /*height:51%;*/
   width:100%;
   background-color:#ffffff;
   padding:10px;
@@ -186,14 +187,42 @@ main {
 
 .latest-score__container {
   border: #d0d0d0 2px solid;
-  display:flex;
-  height:27%;
+  /*display:block;*/
+  /*height:27%;*/
   width:100%;
   background-color:#ffffff;
   padding: 10px;
+  color: #6e6e6e;
 }
 
+.latest-score__container h3 {
+  margin: 0;
+}
 
+.latest-score__container article {
+  display:inline-flex;
+  flex-direction: column;
+  width:49%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.latest-score__article--ch1{
+  border-right: 1px solid #6e6e6e;
+}
+
+.latest-score__container h4 {
+  margin:0;
+  font-weight:100;
+}
+
+.latest-score__span--guess {
+  font-size: 80px;
+  width:100%;
+  display:inline-block;
+  color:#dd1972;
+  font-weight: 700;
+}
 /********************** Aside *********************/
 
 aside {
@@ -201,6 +230,7 @@ aside {
   background-color:#D1D2D4;
   padding:20px 30px;
   border-left:2px solid #6e6e6e;
+  color:#6e6e6e;
 }
 
 .card__article--winner {
@@ -209,3 +239,49 @@ aside {
   padding:10px;
 }
 
+.winner__section {
+  background-color:#ffffff;
+  border:2px solid #6e6e6e;
+  padding:10px;
+  margin-top: 5px;
+}
+
+.winner__div--ch {
+  display:flex;
+  justify-content: space-around;
+  padding:5px;
+  font-weight: 700;
+}
+
+.winner__div--ch p {
+  margin:0;
+  font-weight:100;
+}
+
+.winner__div--winner span {
+  display: block;
+  text-align:center;
+}
+
+.winner__span--name {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.winner__span--winner {
+  font-size:40px;
+  font-weight:100;
+}
+
+.winner__div--bottom {
+  display:flex;
+  justify-content: space-between;
+  font-weight: 100;
+  padding:5px;
+}
+
+.winner__btn--close {
+  border-radius: 50%;
+  background-color: #6e6e6e;
+  color:white;
+}

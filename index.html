@@ -63,18 +63,20 @@
     </container>
     <container class="latest-score__container">
       <h3 class="container__headers">Latest Score</h3>
+      <div class="latest-score__div--scores">
       <article class="latest-score__article--ch1">
         <span class="latest-score__span--name1" id="latest-score__span--ch1">Challenger 1 Name</span>
         <h4>current guess</h4>
-        <span class="latest-score__span--guess">99</span>
-        <span class="latest-score__span--low-high" id="latest-score__output--left">thats too high</span>
+        <span class="latest-score__span--guess">1</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--left">that's too low</span>
       </article>
       <article class="latest-score__article--ch2">
         <span class="latest-score__span--name1" id="latest-score__span--ch2">Challenger 2 Name</span>
         <h4>current guess</h4>
         <span class="latest-score__span--guess">99</span> 
-        <span class="latest-score__span--low-high" id="latest-score__output--right">thats too high</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--right">that's too high</span>
       </article>
+    </div>
     </container>
   </main>
   <aside class="card__container">
@@ -85,6 +87,22 @@
       <span class="card__span--winner" id="card__span--winner">Challenger1 Name</span>
       <h3 class="card__header--winner">WINNER</h4>
     </article>
+  <section class="winner__section">
+    <div class="winner__div--ch">
+      <span class="winner__span--ch1">CHALLENGER 1 NAME</span>
+      <p>vs</p>
+      <span class="winner__span--ch2">CHALLENGER 2 NAME</span>
+    </div>
+    <div class="winner__div--winner">
+      <span class="winner__span--name">CHALLENGER 1 NAME</span>
+      <span class="winner__span--winner">WINNER</span>
+    </div>
+    <div class="winner__div--bottom">
+      <span class="winner__span--guess">XX GUESSES</span>
+      <span class="winner__span--minutes">XX MINUTES</span>
+      <button class="winner__btn--close" type="button">x</button>
+    </div>
+  </section>
   </aside>
 </body>
 <script src="main.js"></script>
