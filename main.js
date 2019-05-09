@@ -12,14 +12,8 @@ var btnSubmit = document.querySelector('#player__btn--submit');
 
 
 
-
-
-
-btnRangeUpdate.addEventListener('click', updateRange)
-btnSubmit.addEventListener('click', changeName)
-
-
-
+btnRangeUpdate.addEventListener('click', updateCorrectRange);
+btnSubmit.addEventListener('click', changeName);
 
 
 
@@ -28,7 +22,6 @@ function updateRange() {
   outputRangeMax.innerHTML = inputRangeMax.value || 100;
   inputRangeMin.value = "";
   inputRangeMax.value = "";
-  generateRandomNumber();
 } 
 
 function changeName() {
@@ -39,10 +32,17 @@ function changeName() {
 }
 
 function generateRandomNumber() {
-  var correctNumberMin = inputRangeMin.value || 1;
-  var correctNumberMax = inputRangeMax.value || 100;
-  var correctNumber = Math.floor(Math.random() * (correctNumberMax - correctNumberMin + 1)) + correctNumberMin;
-  console.log(correctNumber);
+  var minRange = parseInt(outputRangeMin.innerHTML)
+  var maxRange = parseInt(outputRangeMax.innerHTML)
+  var randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+  console.log(minRange)
+  console.log(maxRange)
+  console.log(randomNum)
+}
+
+function updateCorrectRange() {
+  updateRange();
+  generateRandomNumber();
 }
 
 
