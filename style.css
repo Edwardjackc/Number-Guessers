@@ -19,7 +19,7 @@ header {
   flex-direction: column;
   align-items: center;
   background-color:#404041;
-  /*height:20%;*/
+  height:20%;
   padding:25px;
 }
 
@@ -46,7 +46,7 @@ main {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  /*height:90%;*/
+  height:90%;
   width:50%;
   background-color:#f7f7f7;
   padding:20px;
@@ -124,7 +124,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   border: #d0d0d0 2px solid;
-  /*height:51%;*/
+  height:51%;
   width:100%;
   background-color:#ffffff;
   padding:10px;
@@ -188,7 +188,7 @@ main {
 .latest-score__container {
   border: #d0d0d0 2px solid;
   /*display:block;*/
-  /*height:27%;*/
+  height:27%;
   width:100%;
   background-color:#ffffff;
   padding: 10px;
@@ -264,13 +264,13 @@ aside {
 }
 
 .winner__span--name {
-  font-size: 40px;
+  font-size: 2em;
   font-weight: 700;
 }
 
 .winner__span--winner {
-  font-size:40px;
-  font-weight:100;
+  font-size:2em;
+  font-weight:300;
 }
 
 .winner__div--bottom {
