@@ -9,11 +9,14 @@ var inputNameCh2 = document.querySelector('#player__name--ch2');
 var outputNameCh1 =document.querySelector('#latest-score__span--ch1');
 var outputNameCh2 = document.querySelector('#latest-score__span--ch2');
 var btnSubmit = document.querySelector('#player__btn--submit');
-
+var playerForm = document.querySelector('#player__form');
+var btnClear = document.querySelector('#player__btn--clear');
+var btnReset = document.querySelector('#player__btn--reset');
 
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 btnSubmit.addEventListener('click', changeName);
-
+btnClear.addEventListener('click', clearPlayerForm);
+btnReset.addEventListener('click', resetGame)
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -23,8 +26,8 @@ function updateRange() {
 } 
 
 function changeName() {
-  outputNameCh1.innerHTML = inputNameCh1.value;
-  outputNameCh2.innerHTML = inputNameCh2.value;
+  outputNameCh1.innerHTML = inputNameCh1.value || "Challenger 1";
+  outputNameCh2.innerHTML = inputNameCh2.value || "Challenger 2";
 }
 
 function generateRandomNumber() {
@@ -39,6 +42,16 @@ function generateRandomNumber() {
 function updateCorrectRange() {
   updateRange();
   generateRandomNumber();
+}
+
+function clearPlayerForm() {
+  playerForm.reset();
+}
+
+function resetGame() {
+  clearPlayerForm();
+  generateRandomNumber();
+  changeName();
 }
 
 // function enabledBtn() { 
