@@ -1,0 +1,287 @@
+* {
+  box-sizing:border-box;
+   /*border:1px red solid; */
+}
+
+body {
+  height:100vh;
+  width:100%;
+  font-family: 'Open Sans', sans-serif;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+/****************** Header ****************/
+header {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color:#404041;
+  /*height:20%;*/
+  padding:25px;
+}
+
+.top__header--edition {
+  font-size:1.5em;
+  color:#ffffff;
+  font-weight:300;
+  margin-bottom:60px;
+}
+
+.top__header {
+  font-size:5em;
+  color:#dd1972;
+  font-weight: 700;
+  height:20px;
+}
+
+.top__span {
+  font-weight: 300;
+}
+
+/****************** Main *********************/
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  /*height:90%;*/
+  width:50%;
+  background-color:#f7f7f7;
+  padding:20px;
+
+}
+
+.container__headers {
+  height:20px;
+  width:30%;
+  color:#6e6e6e;
+  font-size:1.2em;
+}
+
+.range__container--set {
+  height:17%;
+  width:100%;
+  background-color:#ffffff;
+  border: #d0d0d0 2px solid;
+  color:#6e6e6e;
+  padding:10px;
+}
+
+.range__header {
+  width:30%;
+}
+
+.range__wrapper {
+  height:40px;
+  width:100%;
+  display:flex;
+  flex:1 1 
+}
+
+.range__label { 
+  font-size:1em;
+  height:20px;
+  background-color:#ffffff;
+  color:#6e6e6e;
+  width:100px;
+}
+
+.range__input {
+  height:35px;
+  width:40%
+}
+
+.range__btn--update{
+  background-color:#ffffff;
+  height:30px;
+  width:120px;
+  border-radius:25px;
+  color:#ffffff;
+  background-color:#6e6e6e;
+  font-weight:700;
+}
+
+
+
+.player__wrapper {
+  display:block;
+  flex:1;
+}
+
+/*** ****/
+
+.player__wrapper--top {
+  height:20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+
+.player__container--ch {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: #d0d0d0 2px solid;
+  /*height:51%;*/
+  width:100%;
+  background-color:#ffffff;
+  padding:10px;
+}
+
+.player__header--range {
+  width: 80%;
+  font-size: 1.2em;
+  color: #6e6e6e;
+  font-weight: 300;
+}
+
+.player__form--ch {
+  display:flex;
+  width:100%;
+  height:10%;
+}
+
+.player__span--range {
+  text-decoration: underline;
+  font-weight:700;
+}
+
+.player__label {
+  height:20px;
+  color: #6e6e6e;
+}
+
+.player__input {
+  height:35px;
+  width:100%;
+}
+
+.player__input--guess { 
+  height:35px;
+  width:70%;
+  display: block;
+  flex:1;
+}
+
+.player__wrapper--btns {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height:20%;
+}
+
+.btn {
+  background-color:#ffffff;
+  display:flex;
+  flex-wrap:wrap;
+  min-width: 30%;
+  justify-content:center;
+  height:33px;
+  border-radius:25px;
+  color:#ffffff;
+  background-color:#6e6e6e;
+  font-weight:700;
+}
+
+.latest-score__container {
+  border: #d0d0d0 2px solid;
+  /*display:block;*/
+  /*height:27%;*/
+  width:100%;
+  background-color:#ffffff;
+  padding: 10px;
+  color: #6e6e6e;
+}
+
+.latest-score__container h3 {
+  margin: 0;
+}
+
+.latest-score__container article {
+  display:inline-flex;
+  flex-direction: column;
+  width:49%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.latest-score__article--ch1{
+  border-right: 1px solid #6e6e6e;
+}
+
+.latest-score__container h4 {
+  margin:0;
+  font-weight:100;
+}
+
+.latest-score__span--guess {
+  font-size: 80px;
+  width:100%;
+  display:inline-block;
+  color:#dd1972;
+  font-weight: 700;
+}
+/********************** Aside *********************/
+
+aside {
+  width:50%;
+  background-color:#D1D2D4;
+  padding:20px 30px;
+  border-left:2px solid #6e6e6e;
+  color:#6e6e6e;
+}
+
+.card__article--winner {
+  background-color:#ffffff;
+  border:2px solid #6e6e6e;
+  padding:10px;
+}
+
+.winner__section {
+  background-color:#ffffff;
+  border:2px solid #6e6e6e;
+  padding:10px;
+  margin-top: 5px;
+}
+
+.winner__div--ch {
+  display:flex;
+  justify-content: space-around;
+  padding:5px;
+  font-weight: 700;
+}
+
+.winner__div--ch p {
+  margin:0;
+  font-weight:100;
+}
+
+.winner__div--winner span {
+  display: block;
+  text-align:center;
+}
+
+.winner__span--name {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.winner__span--winner {
+  font-size:40px;
+  font-weight:100;
+}
+
+.winner__div--bottom {
+  display:flex;
+  justify-content: space-between;
+  font-weight: 100;
+  padding:5px;
+}
+
+.winner__btn--close {
+  border-radius: 50%;
+  background-color: #6e6e6e;
+  color:white;
+}

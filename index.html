@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Number Guesser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="normalize.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="top__header">NUMBER<span class="top__span">GUESSER</span> </h1>
+    <h2 class="top__header--edition">ULTIMATE CHALLENGER EDITION</h2>
+  </header>
+  <main>
+    <container class="range__container--set">
+      <h3 class="container__headers range__header">Set Range</h3>
+      <wrapper class="range__wrapper">
+        <label class="range__label range__label--min"for="range__input--min">
+          Min Range
+        </label>
+        <input class="range__input range__input--min" id="js_range__input--min" type="number">
+        <label class="range__label range__label--max"for="range__input--max">
+          Max Range
+        </label>
+        <input class="range__input range__input--max" id="js_range__input--max" type="number">
+        <input class="range__btn--update" type="button" value="UPDATE" id="js_range__btn--update">
+      </wrapper>
+    </container>
+    <container class="player__container--ch">
+      <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
+      <h3 class="container__headers">Challenger 1</h3>
+      <form class="player__form--ch player__form--ch1">
+        <wrapper class="player__wrapper">
+          <label class="player__label player__label--name" for="player__name--ch1">Name
+          </label>
+          <input class="player__input" id="player__name--ch1"type="text"required pattern=>
+        </wrapper>
+        <wrapper class="player__wrapper">
+          <label class="player__label" for="player__guess--ch1">Guess</label>
+          <input class="player__input--guess" id="player__guess--ch1" type="number">
+        </wrapper>
+      </form>
+      <h3 class="container__headers">Challenger 2 </h3>
+        <form class="player__form--ch player__form--ch2">
+          <wrapper class="player__wrapper">
+            <label class="player__label player__label--name"for="player__name--ch2">Name
+            </label>
+            <input class="player__input" id="player__name--ch2"type="text">
+          </wrapper>
+          <wrapper class="player__wrapper">
+            <label class="player__label"for="player__guess--ch2">Guess</label>
+            <input class="player__input--guess" id="player__guess--ch2" type="number">
+          </wrapper>
+        </form>
+        <wrapper class="player__wrapper--btns">
+          <input type="button"class="btn"value="SUBMIT GAME"id="player__btn--submit">
+          <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
+          <input type="button"class="btn"value="CLEAR GAME"id="player__btn--clear">
+        </wrapper>
+    </container>
+    <container class="latest-score__container">
+      <h3 class="container__headers">Latest Score</h3>
+      <div class="latest-score__div--scores">
+      <article class="latest-score__article--ch1">
+        <span class="latest-score__span--name1" id="latest-score__span--ch1">Challenger 1 Name</span>
+        <h4>current guess</h4>
+        <span class="latest-score__span--guess">1</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--left">that's too low</span>
+      </article>
+      <article class="latest-score__article--ch2">
+        <span class="latest-score__span--name1" id="latest-score__span--ch2">Challenger 2 Name</span>
+        <h4>current guess</h4>
+        <span class="latest-score__span--guess">99</span> 
+        <span class="latest-score__span--low-high" id="latest-score__output--right">that's too high</span>
+      </article>
+    </div>
+    </container>
+  </main>
+  <aside class="card__container">
+    <article class="card__article--winner">
+      <span class="card__span--name" id="card__name--ch1">Challenger1</span>
+      <span class="card__span--vs">vs</span>
+      <span class="card__span--name" id="card__name--ch2">Challenger2</span>
+      <span class="card__span--winner" id="card__span--winner">Challenger1 Name</span>
+      <h3 class="card__header--winner">WINNER</h4>
+    </article>
+  <section class="winner__section">
+    <div class="winner__div--ch">
+      <span class="winner__span--ch1">CHALLENGER 1 NAME</span>
+      <p>vs</p>
+      <span class="winner__span--ch2">CHALLENGER 2 NAME</span>
+    </div>
+    <div class="winner__div--winner">
+      <span class="winner__span--name">CHALLENGER 1 NAME</span>
+      <span class="winner__span--winner">WINNER</span>
+    </div>
+    <div class="winner__div--bottom">
+      <span class="winner__span--guess">XX GUESSES</span>
+      <span class="winner__span--minutes">XX MINUTES</span>
+      <button class="winner__btn--close" type="button">x</button>
+    </div>
+  </section>
+  </aside>
+</body>
+<script src="main.js"></script>
+</html>
