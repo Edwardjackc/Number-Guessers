@@ -58,6 +58,7 @@ main {
   width:30%;
   color:#6e6e6e;
   font-size:1.2em;
+  display:inline;
 }
 
 .range__container--set {
@@ -86,11 +87,13 @@ main {
   background-color:#ffffff;
   color:#6e6e6e;
   width:100px;
+  display:inline;
 }
 
 .range__input {
   height:35px;
-  width:40%
+  width:40%;
+  display:block;
 }
 
 .range__btn--update{
@@ -102,8 +105,6 @@ main {
   background-color:#6e6e6e;
   font-weight:700;
 }
-
-
 
 .player__wrapper {
   display:block;

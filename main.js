@@ -14,9 +14,34 @@ var btnClear = document.querySelector('#player__btn--clear');
 var btnReset = document.querySelector('#player__btn--reset');
 
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
-btnSubmit.addEventListener('click', changeName);
+btnSubmit.addEventListener('click',function() {
+  changeName();
+});
+
 btnClear.addEventListener('click', clearPlayerForm);
-btnReset.addEventListener('click', resetGame)
+
+
+playerForm.addEventListener('keyup',function() {
+  enableBtn(btnClear)
+  enableBtn(btnReset)
+});
+
+
+btnReset.addEventListener('click',function() {
+  resetGame()
+});
+
+
+function pageLoad() {
+  generateRandomNumber();
+  // disableBtn(btnClear)
+}
+
+function resetGame() {
+  clearPlayerForm();
+  generateRandomNumber();
+  changeName();
+}
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -34,8 +59,6 @@ function generateRandomNumber() {
   var minRange = parseInt(outputRangeMin.innerHTML)
   var maxRange = parseInt(outputRangeMax.innerHTML)
   var randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
-  console.log(minRange)
-  console.log(maxRange)
   console.log(randomNum)
 }
 
@@ -46,20 +69,31 @@ function updateCorrectRange() {
 
 function clearPlayerForm() {
   playerForm.reset();
+  console.log('hi')
 }
 
-function resetGame() {
-  clearPlayerForm();
-  generateRandomNumber();
-  changeName();
-}
+// function disableBtn(button) { 
+//     button.disabled = true;
+//   };
 
+function enableBtn(button) {
+  let condition = playerForm.value != ""
+  button.disabled = condition ? false : true 
+}
 // function enabledBtn() { 
 //  .classList.add('.btnEnabled');
 // }
 
+// function btnStyle () {
+//   (button.disabled === true)
+//     ?button.style.cssText = "background-color: #d0d2d3;"
+//     :button.style.cssText = "background-color: #6e6e6e;"
+// }
 
-window.onload = generateRandomNumber();
+
+
+
+window.onload = pageLoad()
 
 
 
