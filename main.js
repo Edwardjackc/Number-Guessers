@@ -27,10 +27,14 @@ btnRangeUpdate.addEventListener('click', updateCorrectRange);
 btnClear.addEventListener('click', clearPlayerForm);
 btnReset.addEventListener('click', resetGame);
 btnSubmit.addEventListener('click', function(){
-  changeName ();
-  displayGuess ();
-  checkResultsCh1 ();
-  checkResultsCh2 ();
+  var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
+  if (noSymbolSuccess){
+    changeName ();
+    displayGuess ();
+    checkResultsCh1 ();
+    checkResultsCh2 ();
+  } //else
+  //error message
 });
 
 
@@ -106,9 +110,21 @@ function checkResultsCh2 () {
     (playerTwoGuess < randomNum){
       guessHintCh2.innerHTML = "That's too low!";
       } else {
-      guessHintCh2.innerHTML = "BOOM!"
+      guessHintCh2.innerHTML = "BOOM!";
 }
 }
+
+function onlyAlphaNumeric (input){
+  var lettersNumbers = /^[0-9a-zA-Z]+$/;
+  if (input.value.match(lettersNumbers)) {
+    changeName ();
+    return true;
+  } else {
+    //remove this alert upon entering error message
+    alert ('No symbols please');
+    return false;
+}
+} 
 
 
 window.onload = generateRandomNumber();
