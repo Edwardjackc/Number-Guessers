@@ -13,10 +13,26 @@ var playerForm = document.querySelector('#player__form');
 var btnClear = document.querySelector('#player__btn--clear');
 var btnReset = document.querySelector('#player__btn--reset');
 
+var inputGuessCh1 = document.querySelector('#player__guess--ch1');
+var inputGuessCh2 = document.querySelector('#player__guess--ch2');
+var currentGuessCh1 = document.querySelector('#latest-score__guess--ch1');
+var currentGuessCh2 = document.querySelector('#latest-score__guess--ch2');
+
+var randomNum 
+
+var guessHintCh1 = document.querySelector('#latest-score__output--left');
+var guessHintCh2 = document.querySelector('#latest-score__output--right');
+
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
-btnSubmit.addEventListener('click', changeName);
 btnClear.addEventListener('click', clearPlayerForm);
-btnReset.addEventListener('click', resetGame)
+btnReset.addEventListener('click', resetGame);
+btnSubmit.addEventListener('click', function(){
+  changeName ();
+  displayGuess ();
+  checkResultsCh1 ();
+  checkResultsCh2 ();
+});
+
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -31,12 +47,13 @@ function changeName() {
 }
 
 function generateRandomNumber() {
-  var minRange = parseInt(outputRangeMin.innerHTML)
-  var maxRange = parseInt(outputRangeMax.innerHTML)
-  var randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
-  console.log(minRange)
-  console.log(maxRange)
-  console.log(randomNum)
+  var minRange = parseInt(outputRangeMin.innerHTML);
+  var maxRange = parseInt(outputRangeMax.innerHTML);
+  randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+  console.log(minRange);
+  console.log(maxRange);
+  console.log(randomNum);
+  return randomNum;
 }
 
 function updateCorrectRange() {
@@ -54,28 +71,47 @@ function resetGame() {
   changeName();
 }
 
-// function enabledBtn() { 
-//  .classList.add('.btnEnabled');
-// }
+
+//query scorecard number and set to var for each ch
+//query each guess from each ch and set to var 
+//display each guess on a card
+
+
+function displayGuess (){
+currentGuessCh1.innerHTML = inputGuessCh1.value || 1;
+currentGuessCh2.innerHTML = inputGuessCh2.value || 100; 
+}
+
+//target the random number
+//compare against guess
+//conditional on if high or low or correct
+
+function checkResultsCh1 () {
+  var playerOneGuess = parseInt(inputGuessCh1.value);
+ if (playerOneGuess > randomNum){
+      guessHintCh1.innerHTML = "That's too high!";
+      } else if 
+    (playerOneGuess < randomNum){
+      guessHintCh1.innerHTML = "That's too low!";
+      } else {
+      guessHintCh1.innerHTML = "BOOM!"
+}
+}
+
+function checkResultsCh2 () {
+  var playerTwoGuess = parseInt(inputGuessCh2.value);
+ if (playerTwoGuess > randomNum){
+      guessHintCh2.innerHTML = "That's too high!";
+      } else if 
+    (playerTwoGuess < randomNum){
+      guessHintCh2.innerHTML = "That's too low!";
+      } else {
+      guessHintCh2.innerHTML = "BOOM!"
+}
+}
 
 
 window.onload = generateRandomNumber();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
