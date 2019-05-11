@@ -20,10 +20,11 @@ btnSubmit.addEventListener('click',function() {
 
 btnClear.addEventListener('click', clearPlayerForm);
 
-
 playerForm.addEventListener('keyup',function() {
   enableBtn(btnClear)
   enableBtn(btnReset)
+  styleBtn(btnClear)
+  styleBtn(btnReset)
 });
 
 
@@ -34,7 +35,7 @@ btnReset.addEventListener('click',function() {
 
 function pageLoad() {
   generateRandomNumber();
-  // disableBtn(btnClear)
+  enableBtn(btnClear)
 }
 
 function resetGame() {
@@ -72,24 +73,17 @@ function clearPlayerForm() {
   console.log('hi')
 }
 
-// function disableBtn(button) { 
-//     button.disabled = true;
-//   };
-
 function enableBtn(button) {
-  let condition = playerForm.value != ""
-  button.disabled = condition ? false : true 
+  let inputOnForm = playerForm.value === ""
+  button.disabled = inputOnForm  ? true : false
+  console.log(button.disabled)
 }
-// function enabledBtn() { 
-//  .classList.add('.btnEnabled');
-// }
 
-// function btnStyle () {
-//   (button.disabled === true)
-//     ?button.style.cssText = "background-color: #d0d2d3;"
-//     :button.style.cssText = "background-color: #6e6e6e;"
-// }
-
+function styleBtn(button) {
+    button.style.cssText = button.disabled === true 
+    ? "background-color:#d0d2d3" 
+    : "background-color: #6e6e6e"
+}
 
 
 

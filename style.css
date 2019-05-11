@@ -174,7 +174,6 @@ main {
 }
 
 .btn {
-  background-color:#ffffff;
   display:flex;
   flex-wrap:wrap;
   min-width: 30%;
@@ -185,6 +184,10 @@ main {
   background-color:#d0d2d3;
   font-weight:700;
 }
+
+.btn--submit {
+  background-color:#6e6e6e
+} 
 
 .latest-score__container {
   border: #d0d0d0 2px solid;
