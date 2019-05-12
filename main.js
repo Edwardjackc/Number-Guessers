@@ -29,7 +29,7 @@ btnReset.addEventListener('click', resetGame);
 btnSubmit.addEventListener('click', function(){
   var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
   if (noSymbolSuccess){
-    changeName ();
+    changeName (); 
     displayGuess ();
     checkResultsCh1 ();
     checkResultsCh2 ();
