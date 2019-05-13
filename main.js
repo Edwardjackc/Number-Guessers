@@ -32,7 +32,7 @@ btnSubmit.addEventListener('click', function () {
   displayGuess();
   checkResultsCh(inputGuessCh1,guessHintCh1);
   checkResultsCh(inputGuessCh2, guessHintCh2);
-  // appendCard(printWinnerResult);
+  appendCard();
 })
 
 btnClear.addEventListener('click', function() {
@@ -70,13 +70,6 @@ function updateCorrectRange() {
   updateRange();
   generateRandomNumber();
 }
-
-// function printWinnerResult() { 
-//   if (randomNum === inputGuessCh1) {
-//   winnerBanner.innerHTML = inputNameCh1.value
-//   return winner
-//   }
-// }
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -148,12 +141,17 @@ function validateForAlphaNumeric(e) {
 }
 
 function validateForNumeric(e) {
-  var acceptableNum = /[\t\n\r]/;
+  var acceptableNum = /[\d/t\n\r]/;
   if (e.key === 'Backspace' || acceptableNum.test(e.key)) {
   } else {
     e.preventDefault();
   }
 }
+
+function addError(element) { 
+  element.classList.add('error')
+}
+
 
 function deleteCard(e) { 
   if (e.target.classList.contains('card__btn--delete'))
