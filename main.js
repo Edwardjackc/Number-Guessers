@@ -128,12 +128,9 @@ function enableBtn(button) {
   button.disabled = inputOnForm  ? true : false
 }
 
-function enableSubmit()  { 
-  if (inputNameCh1.value && inputNameCh2.value ==="") {
-    btnSubmit.disabled = true
-  }else{
-    btnSubmit.disabled = false
-  }
+function enableSubmit() { 
+  condition = inputNameCh1.value && inputNameCh2.value === ""
+  btnSubmit.disabled = condition ? true:false
 }
 
 function styleBtn(button) {
