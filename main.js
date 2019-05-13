@@ -36,7 +36,14 @@ btnSubmit.addEventListener('click', function () {
   }) 
 // });
 
-btnClear.addEventListener('click', clearPlayerForm);
+btnClear.addEventListener('click', function() {
+  clearPlayerForm()
+  disableBtn(btnClear)
+  disableBtn(btnReset)
+  styleBtn(btnClear)
+  styleBtn(btnReset)
+})
+
 
 playerForm.addEventListener('keyup',function() {
   enableBtn(btnClear)
@@ -53,13 +60,14 @@ btnReset.addEventListener('click',function() {
 
 function pageLoad() {
   generateRandomNumber();
-  // enableBtn(btnClear)
 }
 
 function resetGame() {
   clearPlayerForm();
   generateRandomNumber();
   changeName();
+  disableBtn(btnClear)
+  disableBtn(btnReset)
 }
 
 
@@ -96,6 +104,11 @@ function updateCorrectRange() {
 function clearPlayerForm() {
   playerForm.reset();
   console.log('hi')
+}
+
+function disableBtn(button) {
+  button.disabled = true
+  styleBtn(button)
 }
 
 function enableBtn(button) {
