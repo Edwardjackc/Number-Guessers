@@ -173,13 +173,17 @@ function validateForAlphaNumeric(e) {
   }
 };
 
-function deleteCard(e) { 
-  if (e.target.closest('article'))
-    e.target.parentNode.parentNode.parentNode.remove('article')
-    console.log('hi')
+// function deleteCard(e) { 
+//   if (e.target.closest('article'))
+//     e.target.parentNode.parentNode.parentNode.remove('article')
+//     console.log('hi')
+// }
+
+
+function deleteCard(e) {
+    e.target.closest('section').remove()
+  console.log('hi')
 }
-
-
 
 function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
