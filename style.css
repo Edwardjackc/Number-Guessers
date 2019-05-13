@@ -58,6 +58,7 @@ main {
   width:30%;
   color:#6e6e6e;
   font-size:1.2em;
+  display:inline;
 }
 
 .range__container--set {
@@ -86,11 +87,13 @@ main {
   background-color:#ffffff;
   color:#6e6e6e;
   width:100px;
+  display:inline;
 }
 
 .range__input {
   height:35px;
-  width:40%
+  width:40%;
+  display:block;
 }
 
 .range__btn--update{
@@ -102,8 +105,6 @@ main {
   background-color:#6e6e6e;
   font-weight:700;
 }
-
-
 
 .player__wrapper {
   display:block;
@@ -173,7 +174,6 @@ main {
 }
 
 .btn {
-  background-color:#ffffff;
   display:flex;
   flex-wrap:wrap;
   min-width: 30%;
@@ -184,6 +184,10 @@ main {
   background-color:#d0d2d3;
   font-weight:700;
 }
+
+.btn--submit {
+  background-color:#6e6e6e
+} 
 
 .latest-score__container {
   border: #d0d0d0 2px solid;
@@ -257,6 +261,7 @@ aside {
   border:2px solid #6e6e6e;
   padding:10px;
   margin-top:5px;
+  height:200px;
 }
 
 .card__div--ch {
@@ -293,7 +298,7 @@ aside {
   padding:5px;
 }
 
-.card__btn--close {
+.card__btn--delete {
   border-radius: 50%;
   background-color: #6e6e6e;
   color:white;

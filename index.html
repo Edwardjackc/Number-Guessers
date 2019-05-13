@@ -54,9 +54,9 @@
           </wrapper>
         </form>
         <wrapper class="player__wrapper--btns">
-          <input type="button"class="btn"value="SUBMIT GAME"id="player__btn--submit">
-          <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
-          <input type="button"class="btn"value="CLEAR GAME"id="player__btn--clear">
+          <input type="button"class="btn btn--submit"value="SUBMIT GAME"id="player__btn--submit" disabled=true>
+          <input type="button"class="btn"disabled=true value="RESET GAME"id="player__btn--reset">
+          <input type="button"class="btn"disabled=true value="CLEAR GAME"id="player__btn--clear">
         </wrapper>
       </section>
     <section class="latest-score__container">
@@ -65,35 +65,19 @@
       <article class="latest-score__article--ch1">
         <span class="latest-score__span--name1" id="latest-score__span--ch1">Challenger 1 Name</span>
         <h4>current guess</h4>
-        <span class="latest-score__span--guess" id="latest-score__guess--ch1">1</span>
-        <span class="latest-score__span--low-high" id="latest-score__output--left">that's too low</span>
+        <span class="latest-score__span--guess" id="latest-score__guess--ch1">?</span>
+        <span class="latest-score__span--low-high" id="latest-score__output--left">PLEASE SUBMIT A GUESS!</span>
       </article>
       <article class="latest-score__article--ch2">
         <span class="latest-score__span--name1" id="latest-score__span--ch2">Challenger 2 Name</span>
         <h4>current guess</h4>
-        <span class="latest-score__span--guess" id="latest-score__guess--ch2">99</span> 
-        <span class="latest-score__span--low-high" id="latest-score__output--right">that's too high</span>
+        <span class="latest-score__span--guess" id="latest-score__guess--ch2">?</span> 
+        <span class="latest-score__span--low-high" id="latest-score__output--right">PLEASE SUBMIT A GUESS!</span>
       </article>
     </div>
   </section>
   </main>
   <aside class="card__container">
-  <section class="card__section">
-    <div class="card__div--ch">
-      <span class="card__span--ch1">CHALLENGER 1 NAME</span>
-      <p>vs</p>
-      <span class="card__span--ch2">CHALLENGER 2 NAME</span>
-    </div>
-    <div class="card__div--winner">
-      <span class="card__span--name">CHALLENGER 1 NAME</span>
-      <span class="card__span--winner">WINNER</span>
-    </div>
-    <div class="card__div--bottom">
-      <span class="card__span--guess">XX GUESSES</span>
-      <span class="card__span--minutes">XX MINUTES</span>
-      <button class="card__btn--close" type="button">x</button>
-    </div>
-  </section>
   </aside>
 </body>
 <script src="main.js"></script>
