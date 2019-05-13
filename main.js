@@ -78,11 +78,11 @@ function resetGame() {
   disableBtn(btnReset)
 }
 
-function callWinner() { 
-  if (checkResultsCh1 ===true) {
-    appendCard();
-  }
-}
+// function callWinner() { 
+//   if (checkResultsCh1 ===true) {
+//     appendCard();
+//   }
+// }
 
 
 function updateRange() {
@@ -166,23 +166,17 @@ function checkResultsCh2() {
 }
 
 function validateForAlphaNumeric(e) {
-  var regexChar = /[\w\t\n\r]/;
-  if (e.key === 'Backspace' || regexChar.test(e.key)) {
+  var acceptableChar = /[\w\t\n\r]/;
+  if (e.key === 'Backspace' || acceptableChar.test(e.key)) {
   } else {
     e.preventDefault();
   }
 };
 
-// function deleteCard(e) { 
-//   if (e.target.closest('article'))
-//     e.target.parentNode.parentNode.parentNode.remove('article')
-//     console.log('hi')
-// }
 
-
-function deleteCard(e) {
+function deleteCard(e) { 
+  if (e.target.classList.contains('card__btn--delete'))
     e.target.closest('section').remove()
-  console.log('hi')
 }
 
 function appendCard() {
@@ -199,7 +193,7 @@ function appendCard() {
       <div class="card__div--bottom">
       <span class="card__span--guess">XX GUESSES</span>
       <span class="card__span--minutes">XX MINUTES</span>
-      <button class="card__btn--close" type="button">x</button>
+      <button class="card__btn--delete" type="button">x</button>
       </div>
     </article>
     </section>`

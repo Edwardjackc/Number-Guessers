@@ -297,7 +297,7 @@ aside {
   padding:5px;
 }
 
-.card__btn--close {
+.card__btn--delete {
   border-radius: 50%;
   background-color: #6e6e6e;
   color:white;
