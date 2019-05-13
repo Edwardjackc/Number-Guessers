@@ -52,11 +52,11 @@ btnClear.addEventListener('click', function() {
 
 
 playerForm.addEventListener('keyup',function() {
-  enableBtn(btnSubmit)
   enableBtn(btnClear)
   enableBtn(btnReset)
   styleBtn(btnClear)
   styleBtn(btnReset)
+  enableSubmit()
 });
 
 
@@ -126,6 +126,14 @@ function disableBtn(button) {
 function enableBtn(button) {
   let inputOnForm = playerForm.value === /[\w\t\n\r]/
   button.disabled = inputOnForm  ? true : false
+}
+
+function enableSubmit()  { 
+  if (inputNameCh1.value && inputNameCh2.value ==="") {
+    btnSubmit.disabled = true
+  }else{
+    btnSubmit.disabled = false
+  }
 }
 
 function styleBtn(button) {
