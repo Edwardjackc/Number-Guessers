@@ -43,6 +43,7 @@ btnSubmit.addEventListener('click', function () {
 
 btnClear.addEventListener('click', function() {
   clearPlayerForm()
+  disabledBtn(btnSubmit)
   disableBtn(btnClear)
   disableBtn(btnReset)
   styleBtn(btnClear)
@@ -51,6 +52,7 @@ btnClear.addEventListener('click', function() {
 
 
 playerForm.addEventListener('keyup',function() {
+  enableBtn(btnSubmit)
   enableBtn(btnClear)
   enableBtn(btnReset)
   styleBtn(btnClear)
@@ -81,6 +83,7 @@ function callWinner() {
   }
 }
 
+
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
   outputRangeMax.innerHTML = inputRangeMax.value || 100;
@@ -89,8 +92,8 @@ function updateRange() {
 } 
 
 function displayGuess() {
-  currentGuessCh1.innerHTML = inputGuessCh1.value || 1;
-  currentGuessCh2.innerHTML = inputGuessCh2.value || 100;
+  currentGuessCh1.innerHTML = inputGuessCh1.value || "?"
+  currentGuessCh2.innerHTML = inputGuessCh2.value || "?"
 }
 
 function changeName() {
@@ -163,6 +166,10 @@ function validateForAlphaNumeric(e) {
     e.preventDefault();
   }
 };
+
+function deleteCard() { 
+  e.target.parentNode.remove()
+}
 
 function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
