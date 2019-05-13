@@ -24,8 +24,9 @@ var randomNum
 var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
 
-btnRangeUpdate.addEventListener('click', updateCorrectRange);
 
+btnRangeUpdate.addEventListener('click', updateCorrectRange);
+cardContainer.addEventListener('click',deleteCard)
 inputNameCh1.addEventListener('keydown', validateForAlphaNumeric)
 inputNameCh2.addEventListener('keydown', validateForAlphaNumeric)
 
@@ -172,13 +173,17 @@ function validateForAlphaNumeric(e) {
   }
 };
 
-function deleteCard() { 
-  e.target.parentNode.remove()
+function deleteCard(e) { 
+  if (e.target.closest('article'))
+    e.target.parentNode.parentNode.parentNode.remove('article')
+    console.log('hi')
 }
+
+
 
 function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
-    <div class="card__div--ch">
+    <article class="card__div--ch">
       <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
       <p>VS</p>
       <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
@@ -192,7 +197,7 @@ function appendCard() {
       <span class="card__span--minutes">XX MINUTES</span>
       <button class="card__btn--close" type="button">x</button>
       </div>
-      </div>
+    </article>
     </section>`
   generateRandomNumber();
 }
