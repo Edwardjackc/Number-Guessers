@@ -3,7 +3,6 @@ var inputRangeMin = document.querySelector('#js_range__input--min');
 var inputRangeMax = document.querySelector('#js_range__input--max');
 var outputRangeMin = document.querySelector('#player__span--min');
 var outputRangeMax =  document.querySelector('#player__span--max');
-
 var inputNameCh1 = document.querySelector('#player__name--ch1');
 var inputNameCh2 = document.querySelector('#player__name--ch2');
 var outputNameCh1 =document.querySelector('#latest-score__span--ch1');
@@ -13,34 +12,26 @@ var playerForm = document.querySelector('#player__form');
 var btnClear = document.querySelector('#player__btn--clear');
 var btnReset = document.querySelector('#player__btn--reset');
 var cardContainer = document.querySelector('.card__container');
-
 var inputGuessCh1 = document.querySelector('#player__guess--ch1');
 var inputGuessCh2 = document.querySelector('#player__guess--ch2');
 var currentGuessCh1 = document.querySelector('#latest-score__guess--ch1');
 var currentGuessCh2 = document.querySelector('#latest-score__guess--ch2');
-
-var randomNum 
-
 var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
-
-
+var randomNum 
+var winnerBanner = document.querySelector('#card__span--winner');
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 cardContainer.addEventListener('click',deleteCard)
 inputNameCh1.addEventListener('keydown', validateForAlphaNumeric)
 inputNameCh2.addEventListener('keydown', validateForAlphaNumeric)
 
 btnSubmit.addEventListener('click', function () {
-  // var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
-  // if (noSymbolSuccess) {
   changeName();
   displayGuess();
-  checkResultsCh1();
-  checkResultsCh2();
-  callWinner();
-  appendCard();
+  checkResultsCh(inputGuessCh1,guessHintCh1);
+  checkResultsCh(inputGuessCh2, guessHintCh2);
+  appendCard(printWinnerResult);
   }) 
-// });
 
 btnClear.addEventListener('click', function() {
   clearPlayerForm()
@@ -51,7 +42,6 @@ btnClear.addEventListener('click', function() {
   styleBtn(btnReset)
 })
 
-
 playerForm.addEventListener('keyup',function() {
   enableBtn(btnClear)
   enableBtn(btnReset)
@@ -60,14 +50,17 @@ playerForm.addEventListener('keyup',function() {
   enableSubmit()
 });
 
-
-btnReset.addEventListener('click',function() {
-  resetGame()
-});
-
+btnReset.addEventListener('click',resetGame);
 
 function pageLoad() {
   generateRandomNumber();
+}
+
+function printWinnerResult() { 
+  if (randomNum === inputGuessCh1) {
+  winnerBanner.innerHTML = inputNameCh1.value
+  return winner
+  }
 }
 
 function resetGame() {
@@ -78,12 +71,10 @@ function resetGame() {
   disableBtn(btnReset)
 }
 
-// function callWinner() { 
-//   if (checkResultsCh1 ===true) {
-//     appendCard();
-//   }
-// }
-
+function updateCorrectRange() {
+  updateRange();
+  generateRandomNumber();
+}
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -105,18 +96,12 @@ function changeName() {
 function generateRandomNumber() {
   var minRange = parseInt(outputRangeMin.innerHTML)
   var maxRange = parseInt(outputRangeMax.innerHTML)
-  var randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+  randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
   console.log(randomNum)
-}
-
-function updateCorrectRange() {
-  updateRange();
-  generateRandomNumber();
 }
 
 function clearPlayerForm() {
   playerForm.reset();
-  console.log('hi')
 }
 
 function disableBtn(button) {
@@ -126,7 +111,7 @@ function disableBtn(button) {
 
 function enableBtn(button) {
   let inputOnForm = playerForm.value === /[\w\t\n\r]/
-  button.disabled = inputOnForm  ? true : false
+  button.disabled = inputOnForm  ? true:false
 }
 
 function enableSubmit() { 
@@ -135,33 +120,20 @@ function enableSubmit() {
 }
 
 function styleBtn(button) {
-    button.style.cssText = button.disabled === true 
-    ? "background-color:#d0d2d3" 
-    : "background-color: #6e6e6e"
+  button.style.cssText = button.disabled === true 
+  ? "background-color:#d0d2d3" 
+  : "background-color: #6e6e6e"
 }
 
-function checkResultsCh1() {
-  var playerOneGuess = parseInt(inputGuessCh1.value);
+function checkResultsCh(guess,hint) {
+  var playerOneGuess = parseInt(guess.value);
   if (playerOneGuess > randomNum) {
-    guessHintCh1.innerHTML = "That's too high!";
+    hint.innerHTML = "That's too high!";
   } else if
     (playerOneGuess < randomNum) {
-    guessHintCh1.innerHTML = "That's too low!";
+    hint.innerHTML = "That's too low!";
   } else {
-    guessHintCh1.innerHTML = "BOOM!"
-    return true 
-  }
-}
-
-function checkResultsCh2() {
-  var playerTwoGuess = parseInt(inputGuessCh2.value);
-  if (playerTwoGuess > randomNum) {
-    guessHintCh2.innerHTML = "That's too high!";
-  } else if
-    (playerTwoGuess < randomNum) {
-    guessHintCh2.innerHTML = "That's too low!";
-  } else {
-    guessHintCh2.innerHTML = "BOOM!";
+    hint.innerHTML = "BOOM!"
   }
 }
 
@@ -173,31 +145,31 @@ function validateForAlphaNumeric(e) {
   }
 };
 
-
 function deleteCard(e) { 
   if (e.target.classList.contains('card__btn--delete'))
     e.target.closest('section').remove()
 }
 
-function appendCard() {
+function appendCard(winner) {
   cardContainer.innerHTML += `<section class="card__section">
-    <article class="card__div--ch">
+    <div class="card__div--ch">
       <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
       <p>VS</p>
       <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
       </div>
       <div class="card__div--winner">
-      <span class="card__span--name">${'Challenger'.toUpperCase() || 'Challenger'.toUpperCase()}</span>
-      <span class="card__span--winner">WINNER</span>
+      <span class="card__span--name">${'Challenger'.toUpperCase() || 'Challenger'.toUpperCase()}
+        </span>
+      <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
       <div class="card__div--bottom">
       <span class="card__span--guess">XX GUESSES</span>
       <span class="card__span--minutes">XX MINUTES</span>
       <button class="card__btn--delete" type="button">x</button>
       </div>
-    </article>
+    </div>
     </section>`
   generateRandomNumber();
 }
 
-window.onload = pageLoad()
+this.onload = pageLoad()
