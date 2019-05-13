@@ -12,6 +12,7 @@ var btnSubmit = document.querySelector('#player__btn--submit');
 var playerForm = document.querySelector('#player__form');
 var btnClear = document.querySelector('#player__btn--clear');
 var btnReset = document.querySelector('#player__btn--reset');
+var cardContainer = document.querySelector('.card__container');
 
 var inputGuessCh1 = document.querySelector('#player__guess--ch1');
 var inputGuessCh2 = document.querySelector('#player__guess--ch2');
@@ -35,6 +36,8 @@ btnSubmit.addEventListener('click', function () {
   displayGuess();
   checkResultsCh1();
   checkResultsCh2();
+  callWinner();
+  appendCard();
   }) 
 // });
 
@@ -72,6 +75,11 @@ function resetGame() {
   disableBtn(btnReset)
 }
 
+function callWinner() { 
+  if (checkResultsCh1 ===true) {
+    appendCard();
+  }
+}
 
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
@@ -132,6 +140,7 @@ function checkResultsCh1() {
     guessHintCh1.innerHTML = "That's too low!";
   } else {
     guessHintCh1.innerHTML = "BOOM!"
+    return true 
   }
 }
 
@@ -147,7 +156,6 @@ function checkResultsCh2() {
   }
 }
 
-
 function validateForAlphaNumeric(e) {
   var regexChar = /[\w\t\n\r]/;
   if (e.key === 'Backspace' || regexChar.test(e.key)) {
@@ -155,5 +163,26 @@ function validateForAlphaNumeric(e) {
     e.preventDefault();
   }
 };
+
+function appendCard() {
+  cardContainer.innerHTML += `<section class="card__section">
+    <div class="card__div--ch">
+      <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
+      <p>VS</p>
+      <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
+      </div>
+      <div class="card__div--winner">
+      <span class="card__span--name">${'Challenger'.toUpperCase() || 'Challenger'.toUpperCase()}</span>
+      <span class="card__span--winner">WINNER</span>
+      </div>
+      <div class="card__div--bottom">
+      <span class="card__span--guess">XX GUESSES</span>
+      <span class="card__span--minutes">XX MINUTES</span>
+      <button class="card__btn--close" type="button">x</button>
+      </div>
+      </div>
+    </section>`
+  generateRandomNumber();
+}
 
 window.onload = pageLoad()
