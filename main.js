@@ -30,7 +30,7 @@ btnSubmit.addEventListener('click', function () {
   // var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
   // if (noSymbolSuccess) {
     changeName();
-    // displayGuess();
+    displayGuess();
     checkResultsCh1();
     checkResultsCh2();
   }) 
@@ -145,6 +145,7 @@ function checkResultsCh2() {
     guessHintCh2.innerHTML = "BOOM!";
   }
 }
+
 
 // function onlyAlphaNumeric(input) {
 //   var lettersNumbers = /^[0-9a-zA-Z]+$/;
