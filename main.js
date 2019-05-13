@@ -25,14 +25,16 @@ var guessHintCh2 = document.querySelector('#latest-score__output--right');
 
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 
+inputNameCh1.addEventListener('keydown', validateForAlphaNumeric)
+inputNameCh2.addEventListener('keydown', validateForAlphaNumeric)
 
 btnSubmit.addEventListener('click', function () {
   // var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
   // if (noSymbolSuccess) {
-    changeName();
-    displayGuess();
-    checkResultsCh1();
-    checkResultsCh2();
+  changeName();
+  displayGuess();
+  checkResultsCh1();
+  checkResultsCh2();
   }) 
 // });
 
@@ -78,11 +80,10 @@ function updateRange() {
   inputRangeMax.value = "";
 } 
 
-// function displayGuess() {
-//   currentGuessCh1.innerHTML = inputGuessCh1.value || 1;
-//   currentGuessCh2.innerHTML = inputGuessCh2.value || 100;
-// }
-
+function displayGuess() {
+  currentGuessCh1.innerHTML = inputGuessCh1.value || 1;
+  currentGuessCh2.innerHTML = inputGuessCh2.value || 100;
+}
 
 function changeName() {
   outputNameCh1.innerHTML = inputNameCh1.value || "Challenger 1";
@@ -112,7 +113,7 @@ function disableBtn(button) {
 }
 
 function enableBtn(button) {
-  let inputOnForm = playerForm.value === ""
+  let inputOnForm = playerForm.value === /[\w\t\n\r]/
   button.disabled = inputOnForm  ? true : false
 }
 
@@ -147,16 +148,12 @@ function checkResultsCh2() {
 }
 
 
-// function onlyAlphaNumeric(input) {
-//   var lettersNumbers = /^[0-9a-zA-Z]+$/;
-//   if (input.value.match(lettersNumbers)) {
-//     changeName();
-//     return true;
-//   } else {
-//     //remove this alert upon entering error message
-//     alert('No symbols please');
-//     return false;
-//   }
-// } 
+function validateForAlphaNumeric(e) {
+  var regexChar = /[\w\t\n\r]/;
+  if (e.key === 'Backspace' || regexChar.test(e.key)) {
+  } else {
+    e.preventDefault();
+  }
+};
 
 window.onload = pageLoad()
