@@ -21,7 +21,7 @@ var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var winnerBanner = document.querySelector('#card__span--winner');
 var randomNum 
 
-inputRangeMax.addEventListener('keydown', validateForNumeric);
+inputRangeMin.addEventListener('keydown', validateForNumeric);
 inputRangeMax.addEventListener('keydown', validateForNumeric);
 btnReset.addEventListener('click', resetGame);
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
@@ -143,7 +143,7 @@ function validateForAlphaNumeric(e) {
 }
 
 function validateForNumeric(e) {
-  var acceptableNum = /[\t\n\r]/;
+  var acceptableNum = /[\d\t\n\r]/;
   if (e.key === 'Backspace' || acceptableNum.test(e.key)) {
   } else {
     e.preventDefault();
