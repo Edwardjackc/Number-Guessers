@@ -18,13 +18,14 @@ var currentGuessCh1 = document.querySelector('#latest-score__guess--ch1');
 var currentGuessCh2 = document.querySelector('#latest-score__guess--ch2');
 var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
-var randomNum 
 var winnerBanner = document.querySelector('#card__span--winner');
+var randomNum 
+
+btnReset.addEventListener('click', resetGame);
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 cardContainer.addEventListener('click',deleteCard)
 inputNameCh1.addEventListener('keydown', validateForAlphaNumeric)
 inputNameCh2.addEventListener('keydown', validateForAlphaNumeric)
-
 btnSubmit.addEventListener('click', function () {
   changeName();
   displayGuess();
@@ -32,7 +33,6 @@ btnSubmit.addEventListener('click', function () {
   checkResultsCh(inputGuessCh2, guessHintCh2);
   appendCard(printWinnerResult);
   }) 
-
 btnClear.addEventListener('click', function() {
   clearPlayerForm()
   disabledBtn(btnSubmit)
@@ -41,7 +41,6 @@ btnClear.addEventListener('click', function() {
   styleBtn(btnClear)
   styleBtn(btnReset)
 })
-
 playerForm.addEventListener('keyup',function() {
   enableBtn(btnClear)
   enableBtn(btnReset)
@@ -49,8 +48,6 @@ playerForm.addEventListener('keyup',function() {
   styleBtn(btnReset)
   enableSubmit()
 });
-
-btnReset.addEventListener('click',resetGame);
 
 function pageLoad() {
   generateRandomNumber();
@@ -126,11 +123,11 @@ function styleBtn(button) {
 }
 
 function checkResultsCh(guess,hint) {
-  var playerOneGuess = parseInt(guess.value);
-  if (playerOneGuess > randomNum) {
+  var playerGuess = parseInt(guess.value);
+  if (playerGuess > randomNum) {
     hint.innerHTML = "That's too high!";
   } else if
-    (playerOneGuess < randomNum) {
+    (playerGuess < randomNum) {
     hint.innerHTML = "That's too low!";
   } else {
     hint.innerHTML = "BOOM!"
@@ -158,7 +155,7 @@ function appendCard(winner) {
       <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
       </div>
       <div class="card__div--winner">
-      <span class="card__span--name">${'Challenger'.toUpperCase() || 'Challenger'.toUpperCase()}
+      <span class="card__span--name">${(winner).toUpperCase() ||'Challenger'.toUpperCase()}
         </span>
       <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
@@ -171,5 +168,9 @@ function appendCard(winner) {
     </section>`
   generateRandomNumber();
 }
+
+//conditional that determines if winner guess is equal to randomNum
+//need winner to be an argument to be passed 
+// adjust winner to parameter that is returned as an argument from conditional 
 
 this.onload = pageLoad()
