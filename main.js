@@ -21,6 +21,8 @@ var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var winnerBanner = document.querySelector('#card__span--winner');
 var randomNum 
 
+inputRangeMax.addEventListener('keydown', validateForNumeric);
+inputRangeMax.addEventListener('keydown', validateForNumeric);
 btnReset.addEventListener('click', resetGame);
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 cardContainer.addEventListener('click',deleteCard);
