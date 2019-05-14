@@ -23,16 +23,20 @@ var randomNum
 
 btnReset.addEventListener('click', resetGame);
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
-cardContainer.addEventListener('click',deleteCard)
-inputNameCh1.addEventListener('keydown', validateForAlphaNumeric)
-inputNameCh2.addEventListener('keydown', validateForAlphaNumeric)
+cardContainer.addEventListener('click',deleteCard);
+inputNameCh1.addEventListener('keydown',validateForAlphaNumeric);
+inputNameCh2.addEventListener('keydown',validateForAlphaNumeric);
+inputGuessCh1.addEventListener('keydown',validateForNumeric);
+inputGuessCh2.addEventListener('keydown',validateForNumeric);
+
 btnSubmit.addEventListener('click', function () {
   changeName();
   displayGuess();
   checkResultsCh(inputGuessCh1,guessHintCh1);
   checkResultsCh(inputGuessCh2, guessHintCh2);
-  appendCard(printWinnerResult);
+  appendCard();
   }) 
+
 btnClear.addEventListener('click', function() {
   clearPlayerForm()
   disabledBtn(btnSubmit)
@@ -47,17 +51,11 @@ playerForm.addEventListener('keyup',function() {
   styleBtn(btnClear)
   styleBtn(btnReset)
   enableSubmit()
-});
+})
 
 function pageLoad() {
   generateRandomNumber();
-}
-
-function printWinnerResult() { 
-  if (randomNum === inputGuessCh1) {
-  winnerBanner.innerHTML = inputNameCh1.value
-  return winner
-  }
+  //start clock counter
 }
 
 function resetGame() {
@@ -140,14 +138,22 @@ function validateForAlphaNumeric(e) {
   } else {
     e.preventDefault();
   }
-};
+}
+
+function validateForNumeric(e) {
+  var acceptableNum = /[\t\n\r]/;
+  if (e.key === 'Backspace' || acceptableNum.test(e.key)) {
+  } else {
+    e.preventDefault();
+  }
+}
 
 function deleteCard(e) { 
   if (e.target.classList.contains('card__btn--delete'))
     e.target.closest('section').remove()
 }
 
-function appendCard(winner) {
+function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
     <div class="card__div--ch">
       <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
