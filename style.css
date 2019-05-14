@@ -298,3 +298,12 @@ aside {
   background-color: #6e6e6e;
   color:white;
 }
+
+
+.error-border {
+  border:1px solid #DD1972;
+}
+
+.range__div{
+  display: inline
+}

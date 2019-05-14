@@ -16,6 +16,7 @@
   </header>
   <main>
     <section class="range__container--set">
+      <div class="range__div"></div>
       <h3 class="container__headers range__header">Set Range</h3>
       <wrapper class="range__wrapper">
         <label class="range__label range__label--min"for="range__input--min">
@@ -31,22 +32,29 @@
     </section>
     <section class="player__container--ch">
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
+      
+
+      <div class="player__div"></div>
+
+
       <h3 class="container__headers">Challenger 1</h3>
       <form class="player__form--ch player__form--ch1" id="player__form">
         <wrapper class="player__wrapper">
           <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
-          <input class="player__input" id="player__name--ch1"type="text"required pattern=>
+          <input class="player__input" id="player__name--ch1"type="text" pattern="[a-zA-Z0-9]+">
         </wrapper>
         <wrapper class="player__wrapper">
           <label class="player__label" for="player__guess--ch1">Guess</label>
+
           <input class="player__input--guess" id="player__guess--ch1" type="number">
+
         </wrapper>
       <h3 class="container__headers">Challenger 2 </h3>
           <wrapper class="player__wrapper">
             <label class="player__label player__label--name"for="player__name--ch2">Name
             </label>
-            <input class="player__input" id="player__name--ch2"type="text">
+            <input class="player__input" id="player__name--ch2" pattern="[a-zA-Z0-9]+" type="text">
           </wrapper>
           <wrapper class="player__wrapper">
             <label class="player__label"for="player__guess--ch2">Guess</label>
