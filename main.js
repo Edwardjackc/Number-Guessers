@@ -36,7 +36,7 @@ btnSubmit.addEventListener('click', function () {
   displayGuess();
   checkResultsCh(inputGuessCh1,guessHintCh1);
   checkResultsCh(inputGuessCh2, guessHintCh2);
-  appendCard();
+  appendCard()
   }) 
 
 btnClear.addEventListener('click', function() {
@@ -155,7 +155,7 @@ function deleteCard(e) {
     e.target.closest('section').remove()
 }
 
-function appendCard() {
+function appendCard(winner) {
   cardContainer.innerHTML += `<section class="card__section">
     <div class="card__div--ch">
       <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
@@ -163,7 +163,7 @@ function appendCard() {
       <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
       </div>
       <div class="card__div--winner">
-      <span class="card__span--name">${(winner).toUpperCase() ||'Challenger'.toUpperCase()}
+      <span class="card__span--name"> ${'Challenger'.toUpperCase()||(winner).toUpperCase()}
         </span>
       <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
@@ -179,6 +179,6 @@ function appendCard() {
 
 //conditional that determines if winner guess is equal to randomNum
 //need winner to be an argument to be passed 
-// adjust winner to parameter that is returned as an argument from conditional 
+// adjust winner to parameter that is returned as an argument from conditional and reverse conditional 
 
 this.onload = pageLoad()
