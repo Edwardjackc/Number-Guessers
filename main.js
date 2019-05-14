@@ -47,7 +47,7 @@ btnClear.addEventListener('click', function() {
   styleBtn(btnClear)
   styleBtn(btnReset)
 })
-playerForm.addEventListener('keyup',function() {
+playerForm.addEventListener('keypress',function() {
   enableBtn(btnClear)
   enableBtn(btnReset)
   styleBtn(btnClear)
