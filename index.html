@@ -17,7 +17,7 @@
   <main>
     <section class="range__container--set">
       <h3 class="container__headers range__header">Set Range</h3>
-      <wrapper class="range__wrapper">
+      <form class="range__wrapper">
         <label class="range__label range__label--min"for="range__input--min">
           Min Range
         </label>
@@ -27,37 +27,37 @@
         </label>
         <input class="range__input range__input--max" id="js_range__input--max" type="number">
         <input class="range__btn--update" type="button" value="UPDATE" id="js_range__btn--update">
-      </wrapper>
+      </form>
     </section>
     <section class="player__container--ch">
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
       <h3 class="container__headers">Challenger 1</h3>
       <form class="player__form--ch player__form--ch1" id="player__form">
-        <wrapper class="player__wrapper">
+        <div class="player__wrapper">
           <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
           <input class="player__input" id="player__name--ch1"type="text"required pattern=>
-        </wrapper>
-        <wrapper class="player__wrapper">
+        </div>
+        <div class="player__wrapper">
           <label class="player__label" for="player__guess--ch1">Guess</label>
           <input class="player__input--guess" id="player__guess--ch1" type="number">
-        </wrapper>
+        </div>
       <h3 class="container__headers">Challenger 2 </h3>
-          <wrapper class="player__wrapper">
+          <div class="player__wrapper">
             <label class="player__label player__label--name"for="player__name--ch2">Name
             </label>
             <input class="player__input" id="player__name--ch2"type="text">
-          </wrapper>
-          <wrapper class="player__wrapper">
+          </div>
+          <div class="player__wrapper">
             <label class="player__label"for="player__guess--ch2">Guess</label>
             <input class="player__input--guess" id="player__guess--ch2" type="number">
-          </wrapper>
+          </div>
         </form>
-        <wrapper class="player__wrapper--btns">
+        <div class="player__wrapper--btns">
           <input type="button"class="btn btn--submit"value="SUBMIT GAME"id="player__btn--submit" disabled=true>
           <input type="button"class="btn"disabled=true value="RESET GAME"id="player__btn--reset">
           <input type="button"class="btn"disabled=true value="CLEAR GAME"id="player__btn--clear">
-        </wrapper>
+        </div>
       </section>
     <section class="latest-score__container">
       <h3 class="container__headers">Latest Score</h3>
