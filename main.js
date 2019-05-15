@@ -18,7 +18,7 @@ var inputGuessCh2 = document.querySelector('#player__guess--ch2');
 var currentGuessCh1 = document.querySelector('#latest-score__guess--ch1');
 var currentGuessCh2 = document.querySelector('#latest-score__guess--ch2');
 
-var rangeError = document.querySelector(".range__div")
+// var rangeError = document.querySelector(".range__div")
 
 var randomNum 
 
@@ -26,9 +26,7 @@ var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var latestScoreErrorCh1 = document.querySelector("#player__guess--ch1");
 var latestScoreErrorCh2 = document.querySelector("#player__guess--ch2");
-var playerError = document.querySelector(".player__div")
-var errorMessage = 
-    `<img src="error-icon.svg" height= 10px width=10px> <p>Please enter a valid range</p>`;
+var playerError = document.querySelector("#range__input--error")
 var minRange;
 var maxRange;
 
@@ -49,17 +47,18 @@ btnSubmit.addEventListener('click', function(){
 
 function updateRange() {
   if(inputRangeMin.value >= inputRangeMax.value) {
-    var errorMessage = 
-    `<img src="error-icon.svg" height= 5px width=5px> <p>Please enter a valid range</p>`;
     inputRangeMin.classList.add ("error-border");
     inputRangeMax.classList.add ("error-border");
-    rangeError.innerHTML += errorMessage;
+    playerError.classList.toggle("hidden", false);
   } else { 
-      outputRangeMin.innerHTML = inputRangeMin.value || 1;
-      outputRangeMax.innerHTML = inputRangeMax.value || 100;
-      inputRangeMin.value = "";
-      inputRangeMax.value = "";
-}
+    outputRangeMin.innerHTML = inputRangeMin.value || 1;
+    outputRangeMax.innerHTML = inputRangeMax.value || 100;
+    inputRangeMin.value = "";
+    inputRangeMax.value = "";
+    playerError.classList.toggle("hidden", true)
+    inputRangeMin.classList.remove ("error-border");
+    inputRangeMax.classList.remove ("error-border");
+  }
 } 
 
 function changeName() {
@@ -92,20 +91,28 @@ function resetGame() {
   changeName();
 }
 
+
+var guessErrorCh1 = document.querySelector ('#ch1__guess--error');
+var guessErrorCh2 = document.querySelector ('#ch2__guess--error');
+
 function displayGuess (){
 
   if (checkLowerLimit(inputGuessCh1.value) && checkUpperLimit(inputGuessCh1.value)) {
     currentGuessCh1.innerHTML = inputGuessCh1.value || 1;
+    guessErrorCh1.classList.toggle("hidden", true);
+    latestScoreErrorCh1.classList.remove ("error-border");
   } else {
     latestScoreErrorCh1.classList.add ("error-border");
-    playerError.innerHTML += errorMessage;
+    guessErrorCh1.classList.toggle("hidden", false);
   } 
   
   if (checkLowerLimit(inputGuessCh2.value) && checkUpperLimit(inputGuessCh2.value)) {
     currentGuessCh2.innerHTML = inputGuessCh2.value || 100;
+    guessErrorCh2.classList.toggle("hidden", true);
+    latestScoreErrorCh2.classList.remove ("error-border");
   } else{
     latestScoreErrorCh2.classList.add ("error-border"); //add toggle to get rid of error message
-    playerError.innerHTML += errorMessage;
+    guessErrorCh2.classList.toggle("hidden", false);
   }
 }
 
@@ -141,13 +148,22 @@ function checkResultsCh2 () {
 }
 }
 
+var nameErrorCh1 = document.querySelector ('#ch1__name--error');
+var nameErrorCh2 = document.querySelector ('#ch2__name--error');
+
 function onlyAlphaNumeric (input){
   var lettersNumbers = /^[0-9a-zA-Z]+$/;
   if (input.value.match(lettersNumbers)) {
+    inputNameCh1.classList.remove('error-border');
+    inputNameCh2.classList.remove('error-border');
+    nameErrorCh1.classList.toggle('hidden', true)
+    nameErrorCh2.classList.toggle('hidden', true)
     return true;
   } else {
-    //remove this alert upon entering error message
-    alert ('No symbols please');
+    inputNameCh1.classList.add('error-border')
+    inputNameCh2.classList.add('error-border')
+    nameErrorCh1.classList.toggle('hidden', false)
+    nameErrorCh2.classList.toggle('hidden', false)
     return false;
 }
 } 

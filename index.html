@@ -16,56 +16,82 @@
   </header>
   <main>
     <section class="range__container--set">
-      <div class="range__div"></div>
       <h3 class="container__headers range__header">Set Range</h3>
-      <wrapper class="range__wrapper">
-        <label class="range__label range__label--min"for="range__input--min">
+      <div class="range__div--parent">
+        <div class="range__div--first">
+          <label class="range__label range__label--min"for="range__input--min">
           Min Range
-        </label>
-        <input class="range__input range__input--min" id="js_range__input--min" type="number">
-        <label class="range__label range__label--max"for="range__input--max">
+          </label>
+          <input class="range__input range__input--min" id="js_range__input--min" type="number">
+        </div>
+        <div class="range__div--second">
+          <label class="range__label range__label--max"for="range__input--max">
           Max Range
-        </label>
-        <input class="range__input range__input--max" id="js_range__input--max" type="number">
+          </label>
+          <input class="range__input range__input--max" id="js_range__input--max" type="number">
+        </div>
         <input class="range__btn--update" type="button" value="UPDATE" id="js_range__btn--update">
-      </wrapper>
+      </div>
+      <div class="range__div--error hidden" id="range__input--error">
+        <img src="error-icon.svg" height=13px width=13px> 
+        <p>Please enter a valid range</p>
+      </div>
     </section>
     <section class="player__container--ch">
       <h2 class="player__header--range">The Current Range is <span class="player__span--range"id="player__span--min">1</span> to <span class="player__span--range"id="player__span--max">100</span></h2>
-      
-
-      <div class="player__div"></div>
-
-
       <h3 class="container__headers">Challenger 1</h3>
+      <div class="player__div--ch1">
       <form class="player__form--ch player__form--ch1" id="player__form">
-        <wrapper class="player__wrapper">
+        <div class="player__div--name">
           <label class="player__label player__label--name" for="player__name--ch1">Name
           </label>
           <input class="player__input" id="player__name--ch1"type="text" pattern="[a-zA-Z0-9]+">
-        </wrapper>
-        <wrapper class="player__wrapper">
+        </div>
+        <div class="player__div--guess">
           <label class="player__label" for="player__guess--ch1">Guess</label>
-
           <input class="player__input--guess" id="player__guess--ch1" type="number">
-
-        </wrapper>
-      <h3 class="container__headers">Challenger 2 </h3>
-          <wrapper class="player__wrapper">
-            <label class="player__label player__label--name"for="player__name--ch2">Name
-            </label>
-            <input class="player__input" id="player__name--ch2" pattern="[a-zA-Z0-9]+" type="text">
-          </wrapper>
-          <wrapper class="player__wrapper">
-            <label class="player__label"for="player__guess--ch2">Guess</label>
-            <input class="player__input--guess" id="player__guess--ch2" type="number">
-          </wrapper>
+        </div>
         </form>
-        <wrapper class="player__wrapper--btns">
+        </div>
+        <div class="player__div--error">
+          <div class="range__div--error hidden" id="ch1__name--error">
+            <img src="error-icon.svg" height= 10px width=10px> 
+            <p>Please enter a valid name</p>
+          </div>
+          <div class="range__div--error hidden" id="ch1__guess--error">
+            <img src="error-icon.svg" height= 10px width=10px> 
+            <p>Please enter a valid number</p>
+          </div>
+        </div>
+        <div class="player__div--ch2">
+          <h3 class="container__headers">Challenger 2 </h3>
+          <form class="player__form--ch2 player__form--ch">
+            <div class="player__div--name">
+              <label class="player__label player__label--name"for="player__name--ch2">Name
+              </label>
+              <input class="player__input" id="player__name--ch2" pattern="[a-zA-Z0-9]+" type="text">
+            </div>
+            <div class="player__div--guess">
+              <label class="player__label"for="player__guess--ch2">Guess</label>
+              <input class="player__input--guess" id="player__guess--ch2" type="number">
+            </div>
+        </form>
+      </div>
+      <div class="player__div--error">
+        <div class="range__div--error hidden" id="ch2__name--error">
+          <img src="error-icon.svg" height= 10px width=10px> 
+          <p>Please enter a valid name</p>
+        </div>
+        <div class="range__div--error hidden" id="ch2__guess--error">
+          <img src="error-icon.svg" height= 10px width=10px> 
+          <p>Please enter a valid number</p>
+        </div>
+      </div>
+        <div class="player__wrapper--btns">
           <input type="button"class="btn"value="SUBMIT GAME"id="player__btn--submit">
           <input type="button"class="btn"value="RESET GAME"id="player__btn--reset">
           <input type="button"class="btn"value="CLEAR GAME"id="player__btn--clear">
-        </wrapper>
+        </div>
       </section>
     <section class="latest-score__container">
       <h3 class="container__headers">Latest Score</h3>
