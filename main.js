@@ -148,7 +148,6 @@ function checkResultsCh(guess,hint) {
 }
 
 function whoWon() {
-  debugger;
   if(currentGuessCh1.innerHTML == randomNum) {
   var winnerName =inputNameCh1.value
   }else{  
@@ -156,7 +155,6 @@ function whoWon() {
   }
   return winnerName
 }
-
 
 function validateForAlphaNumeric(e) {
   var acceptableChar = /[\w\t\n\r]/;
@@ -209,6 +207,7 @@ function appendCard() {
 function increaseRange() {
     let range1=outputRangeMin.innerHTML = parseInt(outputRangeMin.innerHTML) -10 || 1 - 10
     let range2=outputRangeMax.innerHTML = parseInt(outputRangeMax.innerHTML) +10 || 100 + 10
+    clearForm(rangeForm)
   } 
 
 //conditional that determines if winner guess is equal to randomNum
