@@ -34,7 +34,7 @@ btnRangeUpdate.addEventListener('click', updateCorrectRange);
 btnClear.addEventListener('click', clearPlayerForm);
 btnReset.addEventListener('click', resetGame);
 btnSubmit.addEventListener('click', function(){
-  var noSymbolSuccess = onlyAlphaNumeric(inputNameCh1) && onlyAlphaNumeric(inputNameCh2);
+  var noSymbolSuccess = onlyAlphaCh1(inputNameCh1) && onlyAlphaCh2(inputNameCh2);
   if (noSymbolSuccess){
     changeName (); 
     displayGuess ();
@@ -151,22 +151,35 @@ function checkResultsCh2 () {
 var nameErrorCh1 = document.querySelector ('#ch1__name--error');
 var nameErrorCh2 = document.querySelector ('#ch2__name--error');
 
-function onlyAlphaNumeric (input){
+// function onlyAlphaNumeric (input){
+//   onlyAlphaCh1 ();
+//   onlyAlphaCh2 ();
+// } 
+
+function onlyAlphaCh1 (input){
   var lettersNumbers = /^[0-9a-zA-Z]+$/;
-  if (input.value.match(lettersNumbers)) {
-    inputNameCh1.classList.remove('error-border');
-    inputNameCh2.classList.remove('error-border');
-    nameErrorCh1.classList.toggle('hidden', true)
-    nameErrorCh2.classList.toggle('hidden', true)
-    return true;
-  } else {
-    inputNameCh1.classList.add('error-border')
-    inputNameCh2.classList.add('error-border')
-    nameErrorCh1.classList.toggle('hidden', false)
-    nameErrorCh2.classList.toggle('hidden', false)
-    return false;
+  if (input.value.match(lettersNumbers)){
+  inputNameCh1.classList.remove('error-border');
+  nameErrorCh1.classList.toggle('hidden', true);
+  return true;
+} else {
+  inputNameCh1.classList.add('error-border')
+  nameErrorCh1.classList.toggle('hidden', false)
 }
-} 
+}
+
+function onlyAlphaCh2 (input){
+  var lettersNumbers = /^[0-9a-zA-Z]+$/;
+  if (input.value.match(lettersNumbers)){
+  inputNameCh2.classList.remove('error-border');
+  nameErrorCh2.classList.toggle('hidden', true);
+  return true;
+} else {
+  inputNameCh2.classList.add('error-border')
+  nameErrorCh2.classList.toggle('hidden', false)
+}
+}
+
 
 
 window.onload = generateRandomNumber();
