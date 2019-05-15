@@ -37,14 +37,14 @@ function clickBtnSubmitEvent() {
   displayGuess();
   checkResultsCh(inputGuessCh1, guessHintCh1);
   checkResultsCh(inputGuessCh2, guessHintCh2);
-  clearForm(playerForm)
-  clearForm(rangeForm)
-  disableBtn(btnSubmit)
+  // clearForm(rangeForm);
+  clearForm(playerForm);
+  disableBtn(btnSubmit);
 }
 
 btnReset.addEventListener('click', clickResetGameEvent)
 function clickResetGameEvent() {
-  clearForm(playerForm);
+  // clearForm(playerForm);
   clearForm(rangeForm);
   generateRandomNumber();
   changeName();
@@ -90,7 +90,6 @@ function updateCorrectRange() {
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
   outputRangeMax.innerHTML = inputRangeMax.value || 100;
-  clearForm(rangeForm)
 } 
 
 function displayGuess() {
@@ -145,7 +144,6 @@ function checkResultsCh(guess,hint) {
   } else {
     hint.innerText = "BOOM!"
     appendCard()
-    return true
   }
 }
 
@@ -204,13 +202,18 @@ function appendCard() {
       </div>
     </div>
     </section>`
+  increaseRange();
   generateRandomNumber();
 }
 
+function increaseRange() {
+    let range1=outputRangeMin.innerHTML = parseInt(outputRangeMin.innerHTML) -10 || 1 - 10
+    let range2=outputRangeMax.innerHTML = parseInt(outputRangeMax.innerHTML) +10 || 100 + 10
+  } 
 
 //conditional that determines if winner guess is equal to randomNum
 //need winner to be an argument to be passed 
-// adjust winner to parameter that is returned as an argument from conditional and reverse conditional 
+// adjust winner to parameter that is returned as an argument fro9m conditional and reverse conditional 
 
 // function appendWinnerName() {
 //   if (
