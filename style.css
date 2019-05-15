@@ -74,7 +74,7 @@ main {
   width:30%;
 }
 
-.range__wrapper {
+.range__form {
   height:40px;
   width:100%;
   display:flex;
@@ -104,6 +104,10 @@ main {
   color:#ffffff;
   background-color:#6e6e6e;
   font-weight:700;
+}
+
+.range__btn--update:hover{
+  background-color:#dd1972
 }
 
 .player__wrapper {
@@ -185,6 +189,10 @@ main {
   font-weight:700;
 }
 
+.btn:hover{
+  background-color:#dd1972;
+}
+
 .btn--submit {
   background-color:#6e6e6e
 } 
@@ -228,7 +236,7 @@ main {
   font-weight: 700;
 }
 
-.btnEnabled{
+.btnEnabled {
   display: flex;
   flex-wrap: wrap;
   min-width: 30%;
@@ -239,6 +247,12 @@ main {
   background-color: #6e6e6e;
   font-weight: 700;
 }
+
+.btnEnabled:hover {
+  background-color:#dd1972;
+}
+
+
 
 /********************** Aside *********************/
 

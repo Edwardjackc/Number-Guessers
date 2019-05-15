@@ -19,11 +19,10 @@ var currentGuessCh2 = document.querySelector('#latest-score__guess--ch2');
 var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var winnerBanner = document.querySelector('#card__span--winner');
-var randomNum 
+var rangeForm = document.querySelector('.range__form');
 
 inputRangeMin.addEventListener('keydown', validateForNumeric);
 inputRangeMax.addEventListener('keydown', validateForNumeric);
-btnReset.addEventListener('click', resetGame);
 btnRangeUpdate.addEventListener('click', updateCorrectRange);
 cardContainer.addEventListener('click',deleteCard);
 inputNameCh1.addEventListener('keydown',validateForAlphaNumeric);
@@ -31,41 +30,56 @@ inputNameCh2.addEventListener('keydown',validateForAlphaNumeric);
 inputGuessCh1.addEventListener('keydown',validateForNumeric);
 inputGuessCh2.addEventListener('keydown',validateForNumeric);
 
-btnSubmit.addEventListener('click', function () {
+
+btnSubmit.addEventListener('click', clickBtnSubmitEvent);
+function clickBtnSubmitEvent() {
   changeName();
   displayGuess();
-  checkResultsCh(inputGuessCh1,guessHintCh1);
+  checkResultsCh(inputGuessCh1, guessHintCh1);
   checkResultsCh(inputGuessCh2, guessHintCh2);
-  appendCard()
-  }) 
+  clearForm(playerForm)
+  clearForm(rangeForm)
+  disableBtn(btnSubmit)
+}
 
-btnClear.addEventListener('click', function() {
-  clearPlayerForm()
-  disabledBtn(btnSubmit)
+btnReset.addEventListener('click', clickResetGameEvent)
+function clickResetGameEvent() {
+  clearForm(playerForm);
+  clearForm(rangeForm);
+  generateRandomNumber();
+  changeName();
   disableBtn(btnClear)
   disableBtn(btnReset)
   styleBtn(btnClear)
   styleBtn(btnReset)
-})
-playerForm.addEventListener('keypress',function() {
+}
+
+btnClear.addEventListener('click', clickBtnClearEvent) 
+function clickBtnClearEvent() {
+clearForm(playerForm)
+clearForm(rangeForm)
+disableBtn(btnSubmit)
+disableBtn(btnClear)
+disableBtn(btnReset)
+styleBtn(btnClear)
+styleBtn(btnReset)
+}
+
+playerForm.addEventListener('keypress', keyPressPlayerFormEvent)
+function keyPressPlayerFormEvent() {
   enableBtn(btnClear)
   enableBtn(btnReset)
   styleBtn(btnClear)
   styleBtn(btnReset)
   enableSubmit()
-})
-
-function pageLoad() {
-  generateRandomNumber();
-  //start clock counter
 }
 
-function resetGame() {
-  clearPlayerForm();
+function pageLoad() {
+  var timer = 1
   generateRandomNumber();
-  changeName();
-  disableBtn(btnClear)
-  disableBtn(btnReset)
+  // startClock()
+  return timer++
+  //start clock counter
 }
 
 function updateCorrectRange() {
@@ -76,8 +90,7 @@ function updateCorrectRange() {
 function updateRange() {
   outputRangeMin.innerHTML = inputRangeMin.value || 1;
   outputRangeMax.innerHTML = inputRangeMax.value || 100;
-  inputRangeMin.value = "";
-  inputRangeMax.value = "";
+  clearForm(rangeForm)
 } 
 
 function displayGuess() {
@@ -86,8 +99,8 @@ function displayGuess() {
 }
 
 function changeName() {
-  outputNameCh1.innerHTML = inputNameCh1.value || "Challenger 1";
-  outputNameCh2.innerHTML = inputNameCh2.value || "Challenger 2";
+  outputNameCh1.innerHTML = inputNameCh1.value || "Challenger 1 Name";
+  outputNameCh2.innerHTML = inputNameCh2.value || "Challenger 2 Name";
 }
 
 function generateRandomNumber() {
@@ -95,19 +108,19 @@ function generateRandomNumber() {
   var maxRange = parseInt(outputRangeMax.innerHTML)
   randomNum= Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
   console.log(randomNum)
+  return randomNum
 }
 
-function clearPlayerForm() {
-  playerForm.reset();
+function clearForm(object) {
+  object.reset();
 }
 
 function disableBtn(button) {
   button.disabled = true
-  styleBtn(button)
 }
 
 function enableBtn(button) {
-  let inputOnForm = playerForm.value === /[\w\t\n\r]/
+  let inputOnForm = playerForm.value === /[\d\w\t\n\r]/
   button.disabled = inputOnForm  ? true:false
 }
 
@@ -125,14 +138,27 @@ function styleBtn(button) {
 function checkResultsCh(guess,hint) {
   var playerGuess = parseInt(guess.value);
   if (playerGuess > randomNum) {
-    hint.innerHTML = "That's too high!";
+    hint.innerText = "That's too high!";
   } else if
     (playerGuess < randomNum) {
-    hint.innerHTML = "That's too low!";
+    hint.innerText = "That's too low!";
   } else {
-    hint.innerHTML = "BOOM!"
+    hint.innerText = "BOOM!"
+    appendCard()
+    return true
   }
 }
+
+function whoWon() {
+  debugger;
+  if(currentGuessCh1.innerHTML == randomNum) {
+  var winnerName =inputNameCh1.value
+  }else{  
+  var winnerName =inputNameCh2.value
+  }
+  return winnerName
+}
+
 
 function validateForAlphaNumeric(e) {
   var acceptableChar = /[\w\t\n\r]/;
@@ -155,7 +181,11 @@ function deleteCard(e) {
     e.target.closest('section').remove()
 }
 
-function appendCard(winner) {
+// function goClock(timer) {
+//   setInterval(() => timer++, 1000)
+// }
+
+function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
     <div class="card__div--ch">
       <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
@@ -163,13 +193,13 @@ function appendCard(winner) {
       <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
       </div>
       <div class="card__div--winner">
-      <span class="card__span--name"> ${'Challenger'.toUpperCase()||(winner).toUpperCase()}
+      <span class="card__span--name"> ${whoWon().toUpperCase()}
         </span>
       <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
       <div class="card__div--bottom">
       <span class="card__span--guess">XX GUESSES</span>
-      <span class="card__span--minutes">XX MINUTES</span>
+      <span class="card__span--minutes">time</span>
       <button class="card__btn--delete" type="button">x</button>
       </div>
     </div>
@@ -177,8 +207,17 @@ function appendCard(winner) {
   generateRandomNumber();
 }
 
+
 //conditional that determines if winner guess is equal to randomNum
 //need winner to be an argument to be passed 
 // adjust winner to parameter that is returned as an argument from conditional and reverse conditional 
 
+// function appendWinnerName() {
+//   if (
+// }
+
+//guess count = 0 
+// have a guess count, every time a guess is submitted by either player count +1, add numbers if needed, take count and append to card 
+
+//
 this.onload = pageLoad()
