@@ -60,6 +60,7 @@ main {
   font-size:1.2em;
   margin-top: 0;
   margin-bottom: 5px;
+  display:inline;
 }
 
 .range__container--set {
@@ -75,7 +76,11 @@ main {
   width:30%;
 }
 
+<<<<<<< HEAD
 .range__div--parent {
+=======
+.range__form {
+>>>>>>> master
   height:40px;
   width:100%;
   display:flex;
@@ -92,12 +97,18 @@ main {
   background-color:#ffffff;
   color:#6e6e6e;
   width:100px;
+<<<<<<< HEAD
   display: block
+=======
+  display:inline;
+>>>>>>> master
 }
 
 .range__input {
   height:35px;
   width:80%
+  /* width:40%; */
+  display:block;
 }
 
 .range__btn--update{
@@ -111,7 +122,9 @@ main {
   margin-top:20px;
 }
 
-
+.range__btn--update:hover{
+  background-color:#dd1972
+}
 
 .player__wrapper {
   display:block;
@@ -191,7 +204,6 @@ main {
 }
 
 .btn {
-  background-color:#ffffff;
   display:flex;
   flex-wrap:wrap;
   min-width: 30%;
@@ -202,6 +214,14 @@ main {
   background-color:#d0d2d3;
   font-weight:700;
 }
+
+.btn:hover{
+  background-color:#dd1972;
+}
+
+.btn--submit {
+  background-color:#6e6e6e
+} 
 
 .latest-score__container {
   border: #d0d0d0 2px solid;
@@ -242,7 +262,7 @@ main {
   font-weight: 700;
 }
 
-.btnEnabled{
+.btnEnabled {
   display: flex;
   flex-wrap: wrap;
   min-width: 30%;
@@ -252,6 +272,10 @@ main {
   color: #ffffff;
   background-color: #6e6e6e;
   font-weight: 700;
+}
+
+.btnEnabled:hover {
+  background-color:#dd1972;
 }
 
 /********************** Aside *********************/
@@ -275,6 +299,7 @@ aside {
   border:2px solid #6e6e6e;
   padding:10px;
   margin-top:5px;
+  height:200px;
 }
 
 .card__div--ch {
@@ -311,7 +336,7 @@ aside {
   padding:5px;
 }
 
-.card__btn--close {
+.card__btn--delete {
   border-radius: 50%;
   background-color: #6e6e6e;
   color:white;
@@ -427,17 +452,3 @@ aside {
   .latest-score__container h3 {
     width:100%;
   }
-
-/*  .latest-score__article--ch2 {
-    border-top: 1px solid black;
-  }
-
-  .latest-score__span--name1{
-    width:100%;
-  }
-}
-*/
-
-
-
-
