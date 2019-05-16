@@ -20,6 +20,7 @@ var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var winnerBanner = document.querySelector('#card__span--winner');
 var rangeForm = document.querySelector('.range__form');
+var guessStartCount = 0
 
 inputRangeMin.addEventListener('keydown', validateForNumeric);
 inputRangeMax.addEventListener('keydown', validateForNumeric);
@@ -40,6 +41,12 @@ function clickBtnSubmitEvent() {
   // clearForm(rangeForm);
   clearForm(playerForm);
   disableBtn(btnSubmit);
+  guessCounter(guessCount)
+}
+function guessCounter() {
+  debugger;
+  guessCount = guessStartCount + 2;
+  return guessCount
 }
 
 btnReset.addEventListener('click', clickResetGameEvent)
@@ -75,10 +82,8 @@ function keyPressPlayerFormEvent() {
 }
 
 function pageLoad() {
-  var timer = 1
   generateRandomNumber();
   // startClock()
-  return timer++
   //start clock counter
 }
 
@@ -184,19 +189,19 @@ function deleteCard(e) {
 function appendCard() {
   cardContainer.innerHTML += `<section class="card__section">
     <div class="card__div--ch">
-      <span class="card__span--ch1">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
+      <span class="card__span--ch1" name="player-one-name">${inputNameCh1.value.toUpperCase() || `Challenger 1`}</span>
       <p>VS</p>
-      <span class="card__span--ch2">${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
+      <span class="card__span--ch2" name="player-two-name>${inputNameCh2.value.toUpperCase() || `Challenger 2`}</span>
       </div>
       <div class="card__div--winner">
-      <span class="card__span--name"> ${whoWon().toUpperCase()}
+      <span class="card__span--name"name="winning-player-name"> ${whoWon().toUpperCase()}
         </span>
       <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
       <div class="card__div--bottom">
-      <span class="card__span--guess">XX GUESSES</span>
+      <span class="card__span--guess">${guessCounter()}</span>
       <span class="card__span--minutes">time</span>
-      <button class="card__btn--delete" type="button">x</button>
+      <button class="card__btn--delete" type="button"name="delete-card-button">x</button>
       </div>
     </div>
     </section>`
@@ -206,17 +211,14 @@ function appendCard() {
 
 function increaseRange() {
     let range1=outputRangeMin.innerHTML = parseInt(outputRangeMin.innerHTML) -10 || 1 - 10
+    // if -integer reasign to 1 
     let range2=outputRangeMax.innerHTML = parseInt(outputRangeMax.innerHTML) +10 || 100 + 10
     clearForm(rangeForm)
   } 
 
-//conditional that determines if winner guess is equal to randomNum
-//need winner to be an argument to be passed 
-// adjust winner to parameter that is returned as an argument fro9m conditional and reverse conditional 
 
-// function appendWinnerName() {
-//   if (
-// }
+// error message in html display:visable  with img and message
+// conditional that toggles display property 
 
 //guess count = 0 
 // have a guess count, every time a guess is submitted by either player count +1, add numbers if needed, take count and append to card 
