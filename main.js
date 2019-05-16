@@ -59,6 +59,7 @@ function updateRange() {
 
 btnSubmit.addEventListener('click', clickBtnSubmitEvent);
 function clickBtnSubmitEvent() {
+  debugger;
   changeName();
   displayGuess();
   checkResultsCh(inputGuessCh1, guessHintCh1);
@@ -132,7 +133,7 @@ function displayGuess () {
     guessErrorCh2.classList.toggle("hidden", true);
     latestScoreErrorCh2.classList.remove ("error-border");
   } else{
-    latestScoreErrorCh2.classList.add ("error-border"); //add toggle to get rid of error message
+    latestScoreErrorCh2.classList.add ("error-border");
     guessErrorCh2.classList.toggle("hidden", false);
   }
 }
@@ -218,6 +219,19 @@ function whoWon() {
     var winnerName =inputNameCh2.value
   }
   return winnerName
+}
+
+function checkResultsCh(guess, hint) {
+  var playerGuess = parseInt(guess.value);
+  if (playerGuess > randomNum) {
+    hint.innerText = "That's too high!";
+  } else if
+    (playerGuess < randomNum) {
+    hint.innerText = "That's too low!";
+  } else {
+    hint.innerText = "BOOM!"
+    appendCard()
+  }
 }
 
 function validateForAlphaNumeric(e) {
