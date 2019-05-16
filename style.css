@@ -76,11 +76,7 @@ main {
   width:30%;
 }
 
-<<<<<<< HEAD
 .range__div--parent {
-=======
-.range__form {
->>>>>>> master
   height:40px;
   width:100%;
   display:flex;
@@ -97,11 +93,7 @@ main {
   background-color:#ffffff;
   color:#6e6e6e;
   width:100px;
-<<<<<<< HEAD
   display: block
-=======
-  display:inline;
->>>>>>> master
 }
 
 .range__input {
