@@ -20,7 +20,7 @@ var guessHintCh1 = document.querySelector('#latest-score__output--left');
 var guessHintCh2 = document.querySelector('#latest-score__output--right');
 var winnerBanner = document.querySelector('#card__span--winner');
 var rangeForm = document.querySelector('.range__form');
-var guessStartCount = 0
+var guessGlobalCount = 0
 
 inputRangeMin.addEventListener('keydown', validateForNumeric);
 inputRangeMax.addEventListener('keydown', validateForNumeric);
@@ -30,9 +30,31 @@ inputNameCh1.addEventListener('keydown',validateForAlphaNumeric);
 inputNameCh2.addEventListener('keydown',validateForAlphaNumeric);
 inputGuessCh1.addEventListener('keydown',validateForNumeric);
 inputGuessCh2.addEventListener('keydown',validateForNumeric);
-
-
+btnClear.addEventListener('click', clickBtnClearEvent)
+playerForm.addEventListener('keypress', keyPressPlayerFormEvent)
 btnSubmit.addEventListener('click', clickBtnSubmitEvent);
+btnReset.addEventListener('click', clickResetGameEvent)
+
+  function clickResetGameEvent() {
+    // clearForm(playerForm);
+    clearForm(rangeForm);
+    generateRandomNumber();
+    changeName();
+    disableBtn(btnClear)
+    disableBtn(btnReset)
+    styleBtn(btnClear)
+    styleBtn(btnReset)
+}
+
+function pageLoad() {
+  generateRandomNumber();
+}
+
+function updateCorrectRange() {
+  updateRange();
+  generateRandomNumber();
+}
+
 function clickBtnSubmitEvent() {
   changeName();
   displayGuess();
@@ -41,38 +63,9 @@ function clickBtnSubmitEvent() {
   // clearForm(rangeForm);
   clearForm(playerForm);
   disableBtn(btnSubmit);
-  guessCounter(guessCount)
-}
-function guessCounter() {
-  debugger;
-  guessCount = guessStartCount + 2;
-  return guessCount
+  guessCounter(guessGlobalCount)
 }
 
-btnReset.addEventListener('click', clickResetGameEvent)
-function clickResetGameEvent() {
-  // clearForm(playerForm);
-  clearForm(rangeForm);
-  generateRandomNumber();
-  changeName();
-  disableBtn(btnClear)
-  disableBtn(btnReset)
-  styleBtn(btnClear)
-  styleBtn(btnReset)
-}
-
-btnClear.addEventListener('click', clickBtnClearEvent) 
-function clickBtnClearEvent() {
-clearForm(playerForm)
-clearForm(rangeForm)
-disableBtn(btnSubmit)
-disableBtn(btnClear)
-disableBtn(btnReset)
-styleBtn(btnClear)
-styleBtn(btnReset)
-}
-
-playerForm.addEventListener('keypress', keyPressPlayerFormEvent)
 function keyPressPlayerFormEvent() {
   enableBtn(btnClear)
   enableBtn(btnReset)
@@ -81,15 +74,20 @@ function keyPressPlayerFormEvent() {
   enableSubmit()
 }
 
-function pageLoad() {
-  generateRandomNumber();
-  // startClock()
-  //start clock counter
+function clickBtnClearEvent() {
+  clearForm(playerForm)
+  clearForm(rangeForm)
+  disableBtn(btnSubmit)
+  disableBtn(btnClear)
+  disableBtn(btnReset)
+  styleBtn(btnClear)
+  styleBtn(btnReset)
 }
 
-function updateCorrectRange() {
-  updateRange();
-  generateRandomNumber();
+function guessCounter() {
+  debugger;
+  guessesAccumulate = guessGlobalCount +=2;
+  return guessesAccumulate
 }
 
 function updateRange() {
@@ -143,10 +141,10 @@ function checkResultsCh(guess,hint) {
   var playerGuess = parseInt(guess.value);
   if (playerGuess > randomNum) {
     hint.innerText = "That's too high!";
-  } else if
+  }else if
     (playerGuess < randomNum) {
     hint.innerText = "That's too low!";
-  } else {
+  }else{
     hint.innerText = "BOOM!"
     appendCard()
   }
@@ -154,11 +152,11 @@ function checkResultsCh(guess,hint) {
 
 function whoWon() {
   if(currentGuessCh1.innerHTML == randomNum) {
-  var winnerName =inputNameCh1.value
+    var winnerName =inputNameCh1.value
   }else{  
-  var winnerName =inputNameCh2.value
+    var winnerName =inputNameCh2.value
   }
-  return winnerName
+    return winnerName
 }
 
 function validateForAlphaNumeric(e) {
@@ -199,7 +197,7 @@ function appendCard() {
       <span class="card__span--winner" id="card__span--winner" >WINNER</span>
       </div>
       <div class="card__div--bottom">
-      <span class="card__span--guess">${guessCounter()}</span>
+      <span class="card__span--guess">${guessesAccumulate}</span>
       <span class="card__span--minutes">time</span>
       <button class="card__btn--delete" type="button"name="delete-card-button">x</button>
       </div>
@@ -207,21 +205,19 @@ function appendCard() {
     </section>`
   increaseRange();
   generateRandomNumber();
+  resetCounter();
+}
+
+function resetCounter() {
+  guessGlobalCount = 0 
 }
 
 function increaseRange() {
-    let range1=outputRangeMin.innerHTML = parseInt(outputRangeMin.innerHTML) -10 || 1 - 10
-    // if -integer reasign to 1 
-    let range2=outputRangeMax.innerHTML = parseInt(outputRangeMax.innerHTML) +10 || 100 + 10
+    outputRangeMin.innerHTML = parseInt(outputRangeMin.innerHTML) -10 || 1 - 10
+    outputRangeMax.innerHTML = parseInt(outputRangeMax.innerHTML) +10 || 100 + 10
     clearForm(rangeForm)
-  } 
-
+} 
 
 // error message in html display:visable  with img and message
 // conditional that toggles display property 
-
-//guess count = 0 
-// have a guess count, every time a guess is submitted by either player count +1, add numbers if needed, take count and append to card 
-
-//
 this.onload = pageLoad()

@@ -115,8 +115,6 @@ main {
   flex:1;
 }
 
-/*** ****/
-
 .player__wrapper--top {
   height:20%;
   display: flex;
@@ -219,7 +217,7 @@ main {
   padding-top: 5px;
 }
 
-.latest-score__article--ch1{
+.latest-score__article--ch1 {
   border-right: 1px solid #6e6e6e;
 }
 
